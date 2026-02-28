@@ -1,4 +1,4 @@
-from src.views.main_view import View
+from src.views.gacha_bot_view import GachaBotView
 
 import logging
 
@@ -9,4 +9,5 @@ logging.basicConfig(
 )
 
 def start():
-    view = View()
+    view = GachaBotView()
+    view.menu()
