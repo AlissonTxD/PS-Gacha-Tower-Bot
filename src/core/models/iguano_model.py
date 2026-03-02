@@ -1,0 +1,85 @@
+from src.core.ctypes_utils import CtypesUtils
+from time import sleep
+
+COORD_PESQUISA = (360, 266)
+COORD_TRANSFER_ALL = (552, 261)
+COORD_PESQUISA_DINO = (1719, 260)
+COORD_TRANSFER_ALL_DINO = (1913, 263)
+COORD_DROP_ALL = (617, 270)
+COORD_FIST_SLOT = (1659, 373)
+
+PITCH_BASE = 0
+PIXELS_POR_GRAU = 4.57
+
+class IguanoModel:
+    def __init__(self):
+        self.ctype = CtypesUtils()
+        self.yaw_base = self.ctype.yaw_dict["yaw_meio"]
+
+    def get_seeds_w_berry(self):
+        self.ctype.centralize(self.yaw_base, PITCH_BASE, PIXELS_POR_GRAU)
+        self.ctype.press("f")
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_PESQUISA)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.write_text("mejoberry")
+        self.ctype.move_mouse_absolute(*COORD_TRANSFER_ALL)
+        self.ctype.left_click()
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_DROP_ALL)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.press("escape")
+        sleep(1)
+        self.ctype.press("e")
+        sleep(2)
+        self.ctype.press("f")
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_PESQUISA_DINO)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.write_text("seed")
+        self.ctype.move_mouse_absolute(*COORD_TRANSFER_ALL_DINO)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.press("escape")
+        sleep(1)
+        
+    def get_seeds(self):
+        self.ctype.centralize(self.yaw_base, PITCH_BASE, PIXELS_POR_GRAU)
+        self.ctype.press("f")
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_FIST_SLOT)
+        self.ctype.left_click()
+        sleep(1)
+        for _ in range(5):
+            self.ctype.press("t")
+            sleep(0.3)
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_PESQUISA)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.write_text("mejoberry")
+        self.ctype.move_mouse_absolute(*COORD_TRANSFER_ALL)
+        self.ctype.left_click()
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_DROP_ALL)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.press("escape")
+        sleep(1)
+        self.ctype.press("e")
+        sleep(2)
+        self.ctype.press("f")
+        sleep(1)
+        self.ctype.move_mouse_absolute(*COORD_PESQUISA_DINO)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.write_text("seed")
+        self.ctype.move_mouse_absolute(*COORD_TRANSFER_ALL_DINO)
+        self.ctype.left_click()
+        sleep(0.5)
+        self.ctype.press("escape")
+        sleep(1)
+        

@@ -69,6 +69,7 @@ class CtypesUtils:
         "spacebar": 0x20,
         "hyphen": 0xBD,
         "tilde": 0xC0,
+        "backspace": 0x08,
         "zero": 0x30,
         "one": 0x31,
         "two": 0x32,
@@ -110,6 +111,11 @@ class CtypesUtils:
     }
 
     def __init__(self, keymap: Dict[str, int] | None = None) -> None:
+        self.yaw_dict = {
+            "yaw_left": 136.32,
+            "yaw_right": 137.36,
+            "yaw_meio": 134.57
+        }
         self.user32 = ctypes.windll.user32
         self.keymap = dict(self.DEFAULT_KEYMAP)
         if keymap:

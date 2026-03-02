@@ -2,7 +2,6 @@
 from src.core.ctypes_utils import CtypesUtils
 from time import sleep
 
-YAW = 134.57 #meio
 PIXELS_POR_GRAU = 4.57
 COORD_PESQUISA = (360, 266)
 COORD_TRANSFER_ALL = (552, 261)
@@ -13,21 +12,22 @@ COORD_DROP_ALL = (617, 270)
 class CrystalCracker:
     def __init__(self):
         self.ctype = CtypesUtils()
+        self.yaw = self.ctype.yaw_dict["yaw_meio"]
 
     def crack_crystals(self):
         sleep(2)
         self._open_crystal()
-        self.ctype.centralize(YAW, 0, PIXELS_POR_GRAU)
+        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
         sleep(0.5)
         self._put_in_dedicated()
-        self.ctype.centralize(YAW, 0, PIXELS_POR_GRAU)
+        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
         sleep(0.5)
         self.ctype.move_mouse_grau(90, 0, PIXELS_POR_GRAU)
         self._place_in_vault(["riot","cliff","tree","behe"])
         self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
         sleep(0.5)
         self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
-        self._place_in_vault(["fabricated","pump","assault"])
+        self._place_in_vault(["fabricated","shotgun","assault"])
         sleep(0.5)
         self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
         self.ctype.press("f")
@@ -39,10 +39,10 @@ class CrystalCracker:
         self.ctype.left_click()
         self.ctype.press("escape")
         sleep(2)
+        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
+        sleep(0.5)
 
     def grind_items(self):
-        self.ctype.centralize(YAW, 0, PIXELS_POR_GRAU)
-        sleep(0.5)
         self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
         self.ctype.press("f")
         sleep(1)
@@ -50,8 +50,10 @@ class CrystalCracker:
         self.ctype.left_click()
         self.ctype.press("escape")
         sleep(2)
-        self.ctype.centralize(YAW, 0, PIXELS_POR_GRAU)
+        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
         self._put_in_dedicated()
+        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
+        sleep(0.5)
         self.ctype.press("v")
         sleep(1)
         self.ctype.move_mouse_absolute(*COORD_DROP_ALL)
@@ -62,7 +64,7 @@ class CrystalCracker:
 
 
     def _open_crystal(self):
-        for _ in range(30):
+        for _ in range(60):
             key_list = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"]
             for key in key_list:
                 self.ctype.press(key)
