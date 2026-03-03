@@ -1,30 +1,28 @@
 from src.core.ctypes_utils import CtypesUtils
+from src.core.config import config
+
 from time import sleep
 
-PIXELS_POR_GRAU = 4.57
-COORD_SEARCH = (543, 1289)
-COORD_FIRST_ON_LIST = (394, 294)
-COORD_TELEPORT_BUTTON = (2143, 1271)
 
 class TeleportModel:
     def __init__(self):
         self.ctype = CtypesUtils()
 
-    def teleport(self, nome: str):
-        self.ctype.move_mouse_grau(0, -87, PIXELS_POR_GRAU)
+    def teleport(self, tp_name: str):
+        self.ctype.move_mouse_grau(0, -87, config["pixel_per_grau"])
         sleep(0.5)
         self.ctype.press("e")
         sleep(1)
-        self.ctype.move_mouse_absolute(*COORD_SEARCH)
+        self.ctype.move_mouse_absolute(*config["coord_search_teleport_map"])
         self.ctype.left_click()
         sleep(0.5)
-        self.ctype.write_text(nome)
+        self.ctype.write_text(tp_name)
         sleep(0.5)
-        self.ctype.move_mouse_absolute(*COORD_FIRST_ON_LIST)
+        self.ctype.move_mouse_absolute(*config["coord_first_on_list"])
         self.ctype.left_click()
         sleep(0.5)
-        self.ctype.move_mouse_absolute(*COORD_TELEPORT_BUTTON)
+        self.ctype.move_mouse_absolute(*config["coord_teleport_button"])
         self.ctype.left_click()
         sleep(2)
-        self.ctype.move_mouse_grau(0, 87, PIXELS_POR_GRAU)
+        self.ctype.move_mouse_grau(0, 87, config["pixel_per_grau"])
         sleep(0.5)

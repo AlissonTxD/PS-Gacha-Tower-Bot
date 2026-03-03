@@ -236,13 +236,32 @@ class CtypesUtils:
         pitch = float(partes[4])
         return yaw, pitch
     
-    def ccc(self):
-        pyperclip.copy("")
-        self.press("tab")
-        time.sleep(0.5)
-        self.write_text("CCC")
-        time.sleep(0.5)
-        self.press("enter")
+
+    def ccc(self, max_tentativas: int = 3, timeout: float = 5.0) -> None:
+
+        for tentativa in range(1, max_tentativas + 1):
+
+            logging.info(f"Tentativa CCC {tentativa}/{max_tentativas}")
+            pyperclip.copy("")
+            self.press("tab")
+            time.sleep(0.3)
+            self.write_text("CCC")
+            time.sleep(0.3)
+            self.press("enter")
+            inicio = time.time()
+            while time.time() - inicio < timeout:
+
+                time.sleep(0.5)
+                try:
+
+                    yaw, pitch = self.take_yall_pitch_from_clipboard()
+                    logging.info(f"CCC recebido com sucesso: Yaw={yaw}, Pitch={pitch}")
+                    return
+                except Exception:
+
+                    continue
+            logging.warning("Timeout ao esperar resposta do CCC.")
+        raise TimeoutError("Falha ao obter resposta válida do CCC após 3 tentativas.")
 
     def centralize(self, yaw_base: float, pitch_base: float, pixels_per_degree: float) -> None:
 
