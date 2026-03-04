@@ -217,10 +217,12 @@ class CtypesUtils:
     def left_click(self) -> None:
         self._send_mouse(0, 0, self.MOUSEEVENTF_LEFTDOWN)
         self._send_mouse(0, 0, self.MOUSEEVENTF_LEFTUP)
+        time.sleep(0.1)
 
     def right_click(self) -> None:
         self._send_mouse(0, 0, self.MOUSEEVENTF_RIGHTDOWN)
         self._send_mouse(0, 0, self.MOUSEEVENTF_RIGHTUP)
+        time.sleep(0.1)
 
     def calculate_best_path(self, target: int, current: int) -> int:
         return ((target - current + 180) % 360) - 180

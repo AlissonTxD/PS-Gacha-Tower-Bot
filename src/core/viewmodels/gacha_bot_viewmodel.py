@@ -8,7 +8,7 @@ from src.core.models.iguano_model import IguanoModel
 from src.core.models.gacha_model import GachaModel
 from src.core.models.berrys_model import BerrysModel
 
-PEGO_LIST = ["pego01", "pego02", "pego03"]
+PEGO_LIST = ["pego01", "pego02", "pego03", "pego04", "pego05", "pego06"]
 
 GACHA_LIST = [{"yaw": "left", "tpname": "gacha01"},
               {"yaw": "left", "tpname": "gacha02"},
@@ -21,7 +21,20 @@ GACHA_LIST = [{"yaw": "left", "tpname": "gacha01"},
               {"yaw": "left", "tpname": "gacha09"},
               {"yaw": "left", "tpname": "gacha10"},
               {"yaw": "left", "tpname": "gacha11"},
-              {"yaw": "left", "tpname": "gacha12"}]
+              {"yaw": "left", "tpname": "gacha12"},
+              {"yaw": "right", "tpname": "gacha13"},
+              {"yaw": "right", "tpname": "gacha14"},
+              {"yaw": "right", "tpname": "gacha15"},
+              {"yaw": "right", "tpname": "gacha16"},
+              {"yaw": "right", "tpname": "gacha17"},
+              {"yaw": "right", "tpname": "gacha18"},
+              {"yaw": "right", "tpname": "gacha19"},
+              {"yaw": "right", "tpname": "gacha20"},
+              {"yaw": "right", "tpname": "gacha21"},
+              {"yaw": "right", "tpname": "gacha22"},
+              {"yaw": "right", "tpname": "gacha23"},
+              {"yaw": "right", "tpname": "gacha24"}
+              ]
 
 class GachaBotViewModel:
     def __init__(self):
@@ -33,7 +46,10 @@ class GachaBotViewModel:
         self.gacha = GachaModel()
         self.berrys = BerrysModel()
 
-    def start(self):
+    def start(self, start_type: str = None):
+        if start_type == "normal":
+             print("startando normal")
+             self.gacha.first_time = False
         sleep(10)
         while True:
             self.render_station.leave_bed_start()
@@ -42,6 +58,7 @@ class GachaBotViewModel:
             self.__collect_crystals()
             self.teleporter.teleport("start")
             self.render_station.join_bed_end()
+            self.gacha.first_time = False
             sleep(600)
 
     def __collect_crystals(self):
@@ -62,7 +79,7 @@ class GachaBotViewModel:
             self.teleporter.teleport(gacha_pair["tpname"])
             self.gacha.feed_gacha(yaw=gacha_pair["yaw"], side="left")
             self.teleporter.teleport("iguano")
-            self.iguano.get_seeds()
+            self.iguano.get_seeds_w_no_berrys()
             self.teleporter.teleport(gacha_pair["tpname"])
             self.gacha.feed_gacha(yaw=gacha_pair["yaw"], side="right")
          

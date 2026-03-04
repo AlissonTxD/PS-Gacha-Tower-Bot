@@ -1,66 +1,53 @@
-
 from src.core.ctypes_utils import CtypesUtils
+from src.core.config import config
+from src.core.validation_utils import ValidationUtils
+
 from time import sleep
 
-PIXELS_POR_GRAU = 4.57
-COORD_PESQUISA = (360, 266)
-COORD_TRANSFER_ALL = (552, 261)
-COORD_GRIND_ALL = (1268, 1110)
-COORD_TAKE_ALL = (1914, 262)
-COORD_DROP_ALL = (617, 270)
 
 class CrystalCracker:
     def __init__(self):
+        self.validator = ValidationUtils()
         self.ctype = CtypesUtils()
         self.yaw = self.ctype.yaw_dict["yaw_meio"]
 
     def crack_crystals(self):
-        sleep(2)
         self._open_crystal()
-        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
-        sleep(0.5)
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
         self._put_in_dedicated()
-        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
-        sleep(0.5)
-        self.ctype.move_mouse_grau(90, 0, PIXELS_POR_GRAU)
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(90, 0, config["pixel_per_grau"])
         self._place_in_vault(["riot","cliff","tree","behe"])
-        self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
-        sleep(0.5)
-        self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
+        self.ctype.move_mouse_grau(-90, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(-90, 0, config["pixel_per_grau"])
         self._place_in_vault(["fabricated","shotgun","assault"])
-        sleep(0.5)
-        self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
-        self.ctype.press("f")
-        sleep(0.5)
-        self.ctype.move_mouse_absolute(*COORD_TRANSFER_ALL)
+        self.ctype.move_mouse_grau(-90, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
         self.ctype.left_click()
-        sleep(1)
-        self.ctype.move_mouse_absolute(*COORD_GRIND_ALL)
+        sleep(0.5)
+        self.ctype.move_mouse_absolute(*config["misc"]["grind_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
-        sleep(2)
-        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
-        sleep(0.5)
+        sleep(1)
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
 
     def grind_items(self):
-        self.ctype.move_mouse_grau(-90, 0, PIXELS_POR_GRAU)
-        self.ctype.press("f")
-        sleep(1)
-        self.ctype.move_mouse_absolute(*COORD_TAKE_ALL)
+        self.ctype.move_mouse_grau(-90, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self.ctype.move_mouse_absolute(*config["dino_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
-        sleep(2)
-        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
+        sleep(1)
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
         self._put_in_dedicated()
-        self.ctype.centralize(self.yaw, 0, PIXELS_POR_GRAU)
-        sleep(0.5)
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
         self.ctype.press("v")
-        sleep(1)
-        self.ctype.move_mouse_absolute(*COORD_DROP_ALL)
+        self.validator.wait_open(*config["validation"]["inventory_validation"])
+        self.ctype.move_mouse_absolute(*config["player_inventory"]["drop_all"])
         self.ctype.left_click()
-        sleep(1)
         self.ctype.press("escape")
-        sleep(2)
+        sleep(1)
 
 
     def _open_crystal(self):
@@ -71,30 +58,34 @@ class CrystalCracker:
                 sleep(0.01)
 
     def _place_in_vault(self, list_of_items):
+        self.__open_inventory()
         sleep(1)
-        self.ctype.press("f")
-        sleep(3)
-        for item in list_of_items:
-            self.ctype.move_mouse_absolute(*COORD_PESQUISA)
-            self.ctype.left_click()
-            sleep(0.5)
-            self.ctype.write_text(item)
-            self.ctype.move_mouse_absolute(*COORD_TRANSFER_ALL)
-            self.ctype.left_click()
-            sleep(0.5)
+        if not self.validator.is_pixel_color(*config["validation"]["vault_full_validation"]):
+            for item in list_of_items:
+                self.ctype.move_mouse_absolute(*config["player_inventory"]["search"])
+                self.ctype.left_click()
+                self.ctype.write_text(item)
+                self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
+                self.ctype.left_click()
+        else:
+            print("vault full, skipando carai")
         self.ctype.press("escape")
-        sleep(3)
+        sleep(1)
 
     def _put_in_dedicated(self):
-        self.ctype.move_mouse_grau(15,10, PIXELS_POR_GRAU)#dedicada direita cima
+        self.ctype.move_mouse_grau(15,10, config["pixel_per_grau"])#dedicada direita cima
         self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, -30, PIXELS_POR_GRAU)#dedicada direita meio
+        self.ctype.move_mouse_grau(0, -30, config["pixel_per_grau"])#dedicada direita meio
         self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, -40, PIXELS_POR_GRAU)#dedicada direita baixo
+        self.ctype.move_mouse_grau(0, -40, config["pixel_per_grau"])#dedicada direita baixo
         self.ctype.press("e")
-        self.ctype.move_mouse_grau(-30, 0, PIXELS_POR_GRAU)#dedicada esquerda baixo
+        self.ctype.move_mouse_grau(-30, 0, config["pixel_per_grau"])#dedicada esquerda baixo
         self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, 40, PIXELS_POR_GRAU)#dedicada esquerda meio
+        self.ctype.move_mouse_grau(0, 40, config["pixel_per_grau"])#dedicada esquerda meio
         self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, 30, PIXELS_POR_GRAU)#dedicada esquerda cima
+        self.ctype.move_mouse_grau(0, 30, config["pixel_per_grau"])#dedicada esquerda cima
         self.ctype.press("e")
+
+    def __open_inventory(self):
+        self.ctype.press("f")
+        self.validator.wait_open(*config["validation"]["inventory_validation"])

@@ -22,7 +22,15 @@ config = {
     },
 
     "misc": {
-        "lay_on": (1503, 578),
+        "lay_on": (1500, 560),
         "grind_all": (1268, 1110),
+    },
+
+    "validation" :{
+        "inventory_validation": (1570, 200, (46, 167, 189)),
+        "teleport_validation": (500, 180, (208, 247, 255)),
+        "tek_bed_buff_validation": (2097, 1350, (193, 171, 61)),
+        "tek_bed_radial_validation": (1275, 440, (255, 255, 255)),
+        "vault_full_validation": (1533, 734,(9, 178, 161))
     }
 }
