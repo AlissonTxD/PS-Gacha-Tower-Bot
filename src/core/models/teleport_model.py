@@ -13,7 +13,7 @@ class TeleportModel:
     def teleport(self, tp_name: str):
         self.ctype.move_mouse_grau(0, -87, config["pixel_per_grau"])
         self.ctype.press("e")
-        self.validator.wait_open(*config["validation"]["teleport_validation"])
+        self.validator.wait_open(*config["validation"]["teleport_validation"],key="e")
         self.ctype.move_mouse_absolute(*config["teleport"]["search_map"])
         self.ctype.left_click()
         self.ctype.write_text(tp_name)

@@ -43,7 +43,7 @@ class CrystalCracker:
         self._put_in_dedicated()
         self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
         self.ctype.press("v")
-        self.validator.wait_open(*config["validation"]["inventory_validation"])
+        self.validator.wait_open(*config["validation"]["inventory_validation"],key="v")
         self.ctype.move_mouse_absolute(*config["player_inventory"]["drop_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
@@ -88,4 +88,4 @@ class CrystalCracker:
 
     def __open_inventory(self):
         self.ctype.press("f")
-        self.validator.wait_open(*config["validation"]["inventory_validation"])
+        self.validator.wait_open(*config["validation"]["inventory_validation"],key="f")

@@ -18,7 +18,7 @@ class BerrysModel:
 
     def __takeall(self):
         self.ctype.press("f")
-        self.validator.wait_open(*config["validation"]["inventory_validation"])
+        self.validator.wait_open(*config["validation"]["inventory_validation"],key="f")
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.press("escape")

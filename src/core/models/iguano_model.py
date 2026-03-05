@@ -64,4 +64,4 @@ class IguanoModel:
         
     def __open_inventory(self):
         self.ctype.press("f")
-        self.validator.wait_open(*config["validation"]["inventory_validation"])
+        self.validator.wait_open(*config["validation"]["inventory_validation"], key="f")

@@ -36,7 +36,7 @@ class GachaModel:
 
     def __open_inventory(self):
         self.ctype.press("f")
-        self.validator.wait_open(*config["validation"]["inventory_validation"])
+        self.validator.wait_open(*config["validation"]["inventory_validation"], key="f")
 
     def __first_row(self):
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["search"])

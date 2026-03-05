@@ -3,9 +3,6 @@ from src.core.validation_utils import ValidationUtils
 from src.core.config import config
 
 
-PIXELS_POR_GRAU = 4.57
-COORD_LAY_DOWN = (1503, 578)
-
 
 class render_station_model:
     def __init__(self):
@@ -23,7 +20,7 @@ class render_station_model:
     def join_bed_end(self):
         self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
         self.ctype.key_down("e")
-        self.validator.wait_open(*config["validation"]["tek_bed_radial_validation"])
+        self.validator.wait_open(*config["validation"]["tek_bed_radial_validation"],key="e")
         self.ctype.move_mouse_absolute(*config["misc"]["lay_on"])
         self.ctype.left_click()
         self.ctype.key_up("e")
