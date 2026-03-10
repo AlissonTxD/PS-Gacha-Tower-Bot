@@ -66,6 +66,8 @@ class CtypesUtils:
         "enter": 0x0D,
         "leftcontrol": 0xA2,
         "leftshift": 0xA0,
+        "leftalt": 0xA4,
+        "rightalt": 0xA5,
         "spacebar": 0x20,
         "hyphen": 0xBD,
         "tilde": 0xC0,
@@ -108,6 +110,18 @@ class CtypesUtils:
         "x": 0x58,
         "y": 0x59,
         "z": 0x5A,
+        "f1": 0x70,
+        "f2": 0x71,
+        "f3": 0x72,
+        "f4": 0x73,
+        "f5": 0x74,
+        "f6": 0x75,
+        "f7": 0x76,
+        "f8": 0x77,
+        "f9": 0x78,
+        "f10": 0x79,
+        "f11": 0x7A,
+        "f12": 0x7B,
     }
 
     def __init__(self, keymap: Dict[str, int] | None = None) -> None:
@@ -257,7 +271,6 @@ class CtypesUtils:
                 try:
 
                     yaw, pitch = self.take_yall_pitch_from_clipboard()
-                    logging.info(f"CCC recebido com sucesso: Yaw={yaw}, Pitch={pitch}")
                     return
                 except Exception:
 
@@ -272,8 +285,6 @@ class CtypesUtils:
         yaw_atual, pitch_atual = self.take_yall_pitch_from_clipboard()
         diff_yaw = self.calculate_best_path(yaw_base, yaw_atual)
         diff_pitch = pitch_base - pitch_atual
-        logging.info(f"Yaw atual: {yaw_atual}, Pitch atual: {pitch_atual}")
-        logging.info(f"Diff Yaw: {diff_yaw}, Diff Pitch: {diff_pitch}")
         pixels_x = int(diff_yaw * pixels_per_degree)
         pixels_y = int(-diff_pitch * pixels_per_degree)
         self.move_mouse_relative(pixels_x, pixels_y)

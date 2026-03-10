@@ -1,6 +1,7 @@
 from src.core.ctypes_utils import CtypesUtils
 from src.core.validation_utils import ValidationUtils
 from src.core.config import config
+from time import sleep
 
 
 
@@ -12,7 +13,7 @@ class render_station_model:
 
 
     def leave_bed_start(self):
-        self.ctype.press("e")
+        self.ctype.press(key= "e", hold = 3)
         self.validator.wait_close(*config["validation"]["tek_bed_buff_validation"])
         self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
         

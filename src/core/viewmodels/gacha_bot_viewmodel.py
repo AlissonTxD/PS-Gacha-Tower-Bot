@@ -7,6 +7,8 @@ from src.core.models.crystal_cracker_model import CrystalCracker
 from src.core.models.iguano_model import IguanoModel
 from src.core.models.gacha_model import GachaModel
 from src.core.models.berrys_model import BerrysModel
+from src.core.ctypes_utils import CtypesUtils
+
 
 PEGO_LIST = ["pego01", "pego02", "pego03", "pego04", "pego05", "pego06"]
 
@@ -45,21 +47,26 @@ class GachaBotViewModel:
         self.iguano = IguanoModel()
         self.gacha = GachaModel()
         self.berrys = BerrysModel()
+        self.ctype = CtypesUtils()
 
     def start(self, start_type: str = None):
-        if start_type == "normal":
-             print("startando normal")
-             self.gacha.first_time = False
-        sleep(10)
-        while True:
-            self.render_station.leave_bed_start()
-            self.__collect_crystals()
-            self.__feed_gachas()
-            self.__collect_crystals()
-            self.teleporter.teleport("start")
-            self.render_station.join_bed_end()
-            self.gacha.first_time = False
-            sleep(600)
+        try:
+            if start_type == "normal":
+                print("startando normal")
+                self.gacha.first_time = False
+            sleep(30)
+            while True:
+                self.render_station.leave_bed_start()
+                self.__collect_crystals()
+                self.__feed_gachas()
+                self.__collect_crystals()
+                self.teleporter.teleport("start")
+                self.render_station.join_bed_end()
+                self.gacha.first_time = False
+                sleep(900)
+        except Exception as e:
+            self.ctype.combo("leftalt","f10")
+            print(f"Erro salvo: {e}")
 
     def __collect_crystals(self):
             for pego in PEGO_LIST:
@@ -72,7 +79,7 @@ class GachaBotViewModel:
 
     def __feed_gachas(self):
          for gacha_pair in GACHA_LIST:
-            self.teleporter.teleport("berrys")
+            self.teleporter.teleport("gtberry")
             self.berrys.get_berrys()
             self.teleporter.teleport("iguano")
             self.iguano.get_seeds_w_berry()
@@ -82,4 +89,4 @@ class GachaBotViewModel:
             self.iguano.get_seeds_w_no_berrys()
             self.teleporter.teleport(gacha_pair["tpname"])
             self.gacha.feed_gacha(yaw=gacha_pair["yaw"], side="right")
-         
+    

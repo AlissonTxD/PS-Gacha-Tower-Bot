@@ -41,17 +41,17 @@ class GachaModel:
     def __first_row(self):
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["search"])
         self.ctype.left_click()
-        self.ctype.write_text("owl")
+        self.ctype.write_text("p")
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["search"])
         self.ctype.left_click()
-        self.ctype.write_text("owl")
+        self.ctype.write_text("p")
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["drop_all"])
         self.ctype.left_click()
         self.ctype.move_mouse_absolute(*config["player_inventory"]["search"])
         self.ctype.left_click()
-        self.ctype.write_text("owl")
+        self.ctype.write_text("p")
         self.ctype.move_mouse_absolute(*config["player_inventory"]["first_slot"])
         self.ctype.left_click()
         for _ in range(15):
@@ -61,7 +61,7 @@ class GachaModel:
         self.ctype.left_click()
         for _ in range(5):
             self.ctype.press("backspace")
-        self.ctype.write_text("seed")
+        self.ctype.write_text("m")
         self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
@@ -70,7 +70,7 @@ class GachaModel:
     def __refeed_row(self):
         self.ctype.move_mouse_absolute(*config["player_inventory"]["search"])
         self.ctype.left_click()
-        self.ctype.write_text("seed")
+        self.ctype.write_text("m")
         self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.move_mouse_absolute(*config["dino_inventory"]["first_slot"])
