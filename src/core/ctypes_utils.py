@@ -215,7 +215,7 @@ class CtypesUtils:
         self._send_mouse(dx, dy, self.MOUSEEVENTF_MOVE)
         time.sleep(0.5)
 
-    def move_mouse_absolute(self, x: int, y: int) -> None:
+    def move_mouse_absolute(self, x: int, y: int, deley: float = 0.5) -> None:
         screen_w = self.user32.GetSystemMetrics(self.SM_CXSCREEN) - 1
         screen_h = self.user32.GetSystemMetrics(self.SM_CYSCREEN) - 1
 
@@ -223,7 +223,7 @@ class CtypesUtils:
         abs_y = int(y * 65535 / max(screen_h, 1))
 
         self._send_mouse(abs_x, abs_y, self.MOUSEEVENTF_MOVE | self.MOUSEEVENTF_ABSOLUTE)
-        time.sleep(0.5)
+        time.sleep(deley)
 
     def set_cursor_pos(self, x: int, y: int) -> None:
         self.user32.SetCursorPos(int(x), int(y))
