@@ -1,5 +1,6 @@
 config = {
     "pixel_per_grau": 4.57,
+    "yaw": 135.15,
 
     "teleport": {
         "search_map": (543, 1289),

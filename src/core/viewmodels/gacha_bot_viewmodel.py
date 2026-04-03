@@ -10,33 +10,45 @@ from src.core.models.berrys_model import BerrysModel
 from src.core.ctypes_utils import CtypesUtils
 
 
-PEGO_LIST = ["pego01", "pego02", "pego03", "pego04", "pego05", "pego06"]
+PEGO_LIST = ["pego01", "pego02", "pego03", "pego04", "pego05", "pego06", "pego07", "pego08", "pego09", "pego10"]
 
-GACHA_LIST = [{"yaw": "left", "tpname": "gacha01"},
-              {"yaw": "left", "tpname": "gacha02"},
-              {"yaw": "left", "tpname": "gacha03"},
-              {"yaw": "left", "tpname": "gacha04"},
-              {"yaw": "left", "tpname": "gacha05"},
-              {"yaw": "left", "tpname": "gacha06"},
-              {"yaw": "left", "tpname": "gacha07"},
-              {"yaw": "left", "tpname": "gacha08"},
-              {"yaw": "left", "tpname": "gacha09"},
-              {"yaw": "left", "tpname": "gacha10"},
-              {"yaw": "left", "tpname": "gacha11"},
-              {"yaw": "left", "tpname": "gacha12"},
-              {"yaw": "right", "tpname": "gacha13"},
-              {"yaw": "right", "tpname": "gacha14"},
-              {"yaw": "right", "tpname": "gacha15"},
-              {"yaw": "right", "tpname": "gacha16"},
-              {"yaw": "right", "tpname": "gacha17"},
-              {"yaw": "right", "tpname": "gacha18"},
-              {"yaw": "right", "tpname": "gacha19"},
-              {"yaw": "right", "tpname": "gacha20"},
-              {"yaw": "right", "tpname": "gacha21"},
-              {"yaw": "right", "tpname": "gacha22"},
-              {"yaw": "right", "tpname": "gacha23"},
-              {"yaw": "right", "tpname": "gacha24"}
+GACHA_LIST = [{"tpname": "gt01"},
+              {"tpname": "gt02"},
+              {"tpname": "gt03"},
+              {"tpname": "gt04"},
+              {"tpname": "gt05"},
+              {"tpname": "gt06"},
+              {"tpname": "gt07"},
+              {"tpname": "gt08"},
+              {"tpname": "gt09"},
+              {"tpname": "gt10"},
+              {"tpname": "gt11"},
+              {"tpname": "gt12"},
+              {"tpname": "gt13"},
+              {"tpname": "gt14"},
+              {"tpname": "gt15"},
+              {"tpname": "gt16"},
+              {"tpname": "gt17"},
+              {"tpname": "gt18"},
+              {"tpname": "gt19"},
+              {"tpname": "gt20"},
+              {"tpname": "gt21"},
+              {"tpname": "gt22"},
+              {"tpname": "gt23"},
+              {"tpname": "gt24"},
+              {"tpname": "gt25"},
+              {"tpname": "gt26"},
+              {"tpname": "gt27"},
+              {"tpname": "gt28"},
+              {"tpname": "gt29"},
+              {"tpname": "gt30"},
+              {"tpname": "gt31"},
+              {"tpname": "gt32"},
               ]
+
+GACHA_TEST_LIST = [
+                   {"tpname": "gt32"}
+                   ]
 
 class GachaBotViewModel:
     def __init__(self):
@@ -54,7 +66,7 @@ class GachaBotViewModel:
             if start_type == "normal":
                 print("startando normal")
                 self.gacha.first_time = False
-            sleep(30)
+            sleep(10)
             while True:
                 self.render_station.leave_bed_start()
                 self.__collect_crystals()
@@ -63,7 +75,7 @@ class GachaBotViewModel:
                 self.teleporter.teleport("start")
                 self.render_station.join_bed_end()
                 self.gacha.first_time = False
-                sleep(900)
+                sleep(30)
         except Exception as e:
             self.ctype.combo("leftalt","f10")
             print(f"Erro salvo: {e}")
@@ -72,7 +84,7 @@ class GachaBotViewModel:
             for pego in PEGO_LIST:
                 self.teleporter.teleport(pego)
                 self.pego.collect_crystals()
-                self.teleporter.teleport("craker")
+                self.teleporter.teleport("open crystal")
                 self.cracker.crack_crystals()
                 self.teleporter.teleport("grinder")
                 self.cracker.grind_items()
@@ -84,9 +96,15 @@ class GachaBotViewModel:
             self.teleporter.teleport("iguano")
             self.iguano.get_seeds_w_berry()
             self.teleporter.teleport(gacha_pair["tpname"])
-            self.gacha.feed_gacha(yaw=gacha_pair["yaw"], side="left")
+            self.gacha.feed_gacha(side="left")
             self.teleporter.teleport("iguano")
             self.iguano.get_seeds_w_no_berrys()
             self.teleporter.teleport(gacha_pair["tpname"])
-            self.gacha.feed_gacha(yaw=gacha_pair["yaw"], side="right")
+            self.gacha.feed_gacha(side="right")
     
+    def test_gachas(self):
+        sleep(5)
+        self.render_station.leave_bed_start()
+        for gacha_pair in GACHA_TEST_LIST:
+            self.teleporter.teleport(gacha_pair["tpname"])
+            self.gacha.test_gachas()

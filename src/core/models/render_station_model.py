@@ -9,12 +9,13 @@ class render_station_model:
     def __init__(self):
         self.ctype = CtypesUtils()
         self.validator = ValidationUtils()
-        self.yaw_base = self.ctype.yaw_dict["yaw_meio"]
+        self.yaw_base = config["yaw"]
 
 
     def leave_bed_start(self):
         self.ctype.press(key= "e", hold = 3)
         self.validator.wait_close(*config["validation"]["tek_bed_buff_validation"])
+        sleep(1)
         self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
         
 

@@ -8,16 +8,9 @@ class GachaModel:
         self.ctype = CtypesUtils()
         self.first_time = True
         self.validator = ValidationUtils()
-        self.yaw_left = self.ctype.yaw_dict["yaw_left"]
-        self.yaw_right = self.ctype.yaw_dict["yaw_right"]
+        self.yaw_base = config["yaw"]
 
-    def feed_gacha(self, yaw: str, side: str):
-
-        if yaw == "right":
-            actual_yaw = self.yaw_right
-        else:
-            actual_yaw = self.yaw_left
-
+    def feed_gacha(self, side: str):
         if side == "right":
             first_move = 40
             last_move = -40
@@ -25,7 +18,7 @@ class GachaModel:
             first_move = -40
             last_move = 40
 
-        self.ctype.centralize(actual_yaw, 0, config["pixel_per_grau"])
+        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
         self.ctype.move_mouse_grau(first_move, 0, config["pixel_per_grau"])
         self.__open_inventory()
         if self.first_time:
@@ -80,4 +73,13 @@ class GachaModel:
         self.ctype.press("escape")
         sleep(1)
 
-    
+    def test_gachas(self):
+        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(40, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self.ctype.press("escape")
+        sleep(1)
+        self.ctype.move_mouse_grau(-80, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self.ctype.press("escape")
+        sleep(1)

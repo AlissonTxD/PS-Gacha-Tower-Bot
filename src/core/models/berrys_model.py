@@ -8,7 +8,7 @@ class BerrysModel:
     def __init__(self):
         self.validator = ValidationUtils()
         self.ctype = CtypesUtils()
-        self.yaw_base = self.ctype.yaw_dict["yaw_meio"]
+        self.yaw_base = config["yaw"]
 
     def get_berrys(self):
         self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])

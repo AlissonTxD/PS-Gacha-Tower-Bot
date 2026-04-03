@@ -5,11 +5,6 @@ from src.core.config import config
 
 validator = ValidationUtils()
 ctype = CtypesUtils()
-#fica verificando
-#quando aberto click transfer all dino
-#digita T na pesquisa do player
-#drop tudo
-#aperta esc
 
 while True:
     validator.wait_open(*config["validation"]["inventory_validation"], key="v")
@@ -22,4 +17,4 @@ while True:
     ctype.move_mouse_absolute(*config["player_inventory"]["drop_all"], deley=0)
     ctype.left_click()
     ctype.press("escape")
-    sleep(1)    
+    sleep(1)
