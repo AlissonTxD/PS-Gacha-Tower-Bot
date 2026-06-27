@@ -17,8 +17,8 @@ class GachaModel:
         else:
             first_move = -40
             last_move = 40
-
-        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
+        #test tirar o 1 centralize
+        #self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
         self.ctype.move_mouse_grau(first_move, 0, config["pixel_per_grau"])
         self.__open_inventory()
         if self.first_time:

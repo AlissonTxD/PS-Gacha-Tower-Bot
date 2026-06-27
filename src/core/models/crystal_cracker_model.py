@@ -34,10 +34,19 @@ class CrystalCracker:
         self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
         self._put_in_dedicated()
         self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(-90, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self.ctype.move_mouse_absolute(*config["dino_inventory"]["transfer_all"])
+        self.ctype.left_click()
+        self.ctype.press("escape")
+        sleep(1)
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
+        self._put_in_dedicated()
+        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
 
 
     def _open_crystal(self):
-        for _ in range(60):
+        for _ in range(70):
             key_list = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"]
             for key in key_list:
                 self.ctype.press(key)

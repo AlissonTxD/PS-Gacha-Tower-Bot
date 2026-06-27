@@ -18,6 +18,7 @@ class TeleportModel:
         self.ctype.move_mouse_absolute(*config["teleport"]["search_map"])
         self.ctype.left_click()
         self.ctype.write_text(tp_name)
+        sleep(0.1)
         self.ctype.move_mouse_absolute(*config["teleport"]["first_on_list"])
         self.ctype.left_click()
         self.ctype.move_mouse_absolute(*config["teleport"]["teleport_button"])
