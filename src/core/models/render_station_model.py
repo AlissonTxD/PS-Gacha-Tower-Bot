@@ -14,7 +14,6 @@ class render_station_model:
 
     def leave_bed_start(self):
         self.ctype.press(key= "e", hold = 3)
-        self.validator.wait_close(*config["validation"]["tek_bed_buff_validation"])
         sleep(1)
         self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
         
@@ -26,3 +25,8 @@ class render_station_model:
         self.ctype.move_mouse_absolute(*config["misc"]["lay_on"])
         self.ctype.left_click()
         self.ctype.key_up("e")
+        self.validator.wait_open(*config["validation"]["inventory_validation"],key="v")
+        self.ctype.move_mouse_absolute(*config["player_inventory"]["drop_all"])
+        self.ctype.left_click()
+        self.ctype.press("escape")
+        sleep(1)

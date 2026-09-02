@@ -27,6 +27,15 @@ class GachaModel:
             self.__refeed_row()
         self.ctype.move_mouse_grau(last_move, 0, config["pixel_per_grau"])
 
+    def feed_gacha_pair_trap(self):
+        self.ctype.move_mouse_grau(40, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self._feed_gacha_trap()
+        self.ctype.move_mouse_grau(-80, 0, config["pixel_per_grau"])
+        self.__open_inventory()
+        self._feed_gacha_trap()
+        self.ctype.move_mouse_grau(40, 0, config["pixel_per_grau"])
+
     def __open_inventory(self):
         self.ctype.press("f")
         self.validator.wait_open(*config["validation"]["inventory_validation"], key="f")
@@ -81,5 +90,11 @@ class GachaModel:
         sleep(1)
         self.ctype.move_mouse_grau(-80, 0, config["pixel_per_grau"])
         self.__open_inventory()
+        self.ctype.press("escape")
+        sleep(1)
+
+    def _feed_gacha_trap(self):
+        self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
+        self.ctype.left_click()
         self.ctype.press("escape")
         sleep(1)

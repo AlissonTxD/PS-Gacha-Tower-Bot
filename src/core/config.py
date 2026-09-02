@@ -1,5 +1,5 @@
 config = {
-    "pixel_per_grau": 4.57,
+    "pixel_per_grau": 4.15,
     "yaw": 135.15,
 
     "teleport": {

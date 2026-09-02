@@ -125,11 +125,6 @@ class CtypesUtils:
     }
 
     def __init__(self, keymap: Dict[str, int] | None = None) -> None:
-        self.yaw_dict = {
-            "yaw_left": 136.32,
-            "yaw_right": 137.36,
-            "yaw_meio": 134.57
-        }
         self.user32 = ctypes.windll.user32
         self.keymap = dict(self.DEFAULT_KEYMAP)
         if keymap:
@@ -293,4 +288,4 @@ class CtypesUtils:
         pixels_x = int(diff_yaw * pixels_per_degree)
         pixels_y = int(-diff_pitch * pixels_per_degree)
         self.move_mouse_relative(pixels_x, pixels_y)
-        time.sleep(0.5)
+        time.sleep(0.3)

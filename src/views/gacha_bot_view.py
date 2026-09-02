@@ -9,11 +9,14 @@ class GachaBotView:
 
         while True:
             print("Menu do Bot de Gacha")
-            print("nao esquece\ngamma 3, ini e base, inventory weight- asc")
+            print("nao esquece\ngamma 3")
             print("1. Iniciar Bot - First time")
             print("2. Inicial Bot - Feed Normal")
             print("3. Iniciar test de gachas")
-            print("4. Sair")
+            print("4. Iniciar bot trap")
+            print("5. Test alt f10")
+            print("6. Sair")
+            
             choice = input("Escolha uma opção: ")
             match choice:
                 case "1":
@@ -26,6 +29,12 @@ class GachaBotView:
                     print("Iniciando Test de Gachas")
                     self.gachavm.test_gachas()
                 case "4":
+                    print("Iniciando bot trap")
+                    self.gachavm.start_trap()
+                case "5":
+                    print("test alt f10")
+                    self.gachavm.record_replay()
+                case "6":
                     break
                 case _:
                     print("Opção inválida, tente novamente.")
