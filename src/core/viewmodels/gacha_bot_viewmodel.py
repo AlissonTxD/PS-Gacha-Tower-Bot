@@ -11,7 +11,7 @@ from src.core.models.trap_model import TrapModel
 from src.core.ctypes_utils import CtypesUtils
 
 
-PEGO_LIST = ["pego01", "pego02", "pego03", "pego04", "pego05", "pego06", "pego07", "pego08", "pego09", "pego10"]
+PEGO_LIST = ["pego01", "pego02", "pego03", "pego04", "pego05", "pego06", "pego07", "pego08", "pego09", "pego10", "pego11", "pego12"]
 QTD_GACHA = 40
 
 GACHA_LIST_1 = [{"tpname": "gt01"},
@@ -172,7 +172,9 @@ class GachaBotViewModel:
             self.teleporter.teleport(f"gt{gacha:02d}")
             self.gacha.feed_gacha_pair_trap()
             gacha += 1
-            trap = 3 - trap
+            trap += 1
+            if trap > 3:
+                trap = 1
 
     def record_replay(self):
         self.ctype.key_down("leftalt")
