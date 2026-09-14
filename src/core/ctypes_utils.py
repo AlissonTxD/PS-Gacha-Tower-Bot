@@ -1,9 +1,6 @@
 ﻿import ctypes
-import logging
 import time
-import pyperclip
-from typing import Dict
-
+from typing import dict
 
 PUL = ctypes.POINTER(ctypes.c_ulong)
 
@@ -53,13 +50,16 @@ class CtypesUtils:
     MOUSEEVENTF_RIGHTDOWN = 0x0008
     MOUSEEVENTF_RIGHTUP = 0x0010
     MOUSEEVENTF_ABSOLUTE = 0x8000
+    MOUSEEVENTF_WHEEL = 0x0800
+
+    WHEEL_DELTA = 120
 
     KEYEVENTF_KEYUP = 0x0002
 
     SM_CXSCREEN = 0
     SM_CYSCREEN = 1
 
-    DEFAULT_KEYMAP: Dict[str, int] = {
+    DEFAULT_KEYMAP: dict[str, int] = {  # noqa: RUF012
         "tab": 0x09,
         "escape": 0x1B,
         "return": 0x0D,
@@ -124,7 +124,7 @@ class CtypesUtils:
         "f12": 0x7B,
     }
 
-    def __init__(self, keymap: Dict[str, int] | None = None) -> None:
+    def __init__(self, keymap: dict[str, int] | None = None) -> None:
         self.user32 = ctypes.windll.user32
         self.keymap = dict(self.DEFAULT_KEYMAP)
         if keymap:
@@ -141,9 +141,7 @@ class CtypesUtils:
         flags = self.KEYEVENTF_KEYUP if keyup else 0
         inp = INPUT(
             type=self.INPUT_KEYBOARD,
-            union=INPUTUNION(
-                ki=KEYBDINPUT(vk, 0, flags, 0, ctypes.pointer(extra))
-            ),
+            union=INPUTUNION(ki=KEYBDINPUT(vk, 0, flags, 0, ctypes.pointer(extra))),
         )
         self._send_input(inp)
 
@@ -151,9 +149,7 @@ class CtypesUtils:
         extra = ctypes.c_ulong(0)
         inp = INPUT(
             type=self.INPUT_MOUSE,
-            union=INPUTUNION(
-                mi=MOUSEINPUT(dx, dy, 0, flags, 0, ctypes.pointer(extra))
-            ),
+            union=INPUTUNION(mi=MOUSEINPUT(dx, dy, 0, flags, 0, ctypes.pointer(extra))),
         )
         self._send_input(inp)
 
@@ -217,7 +213,9 @@ class CtypesUtils:
         abs_x = int(x * 65535 / max(screen_w, 1))
         abs_y = int(y * 65535 / max(screen_h, 1))
 
-        self._send_mouse(abs_x, abs_y, self.MOUSEEVENTF_MOVE | self.MOUSEEVENTF_ABSOLUTE)
+        self._send_mouse(
+            abs_x, abs_y, self.MOUSEEVENTF_MOVE | self.MOUSEEVENTF_ABSOLUTE
+        )
         time.sleep(deley)
 
     def set_cursor_pos(self, x: int, y: int) -> None:
@@ -233,59 +231,40 @@ class CtypesUtils:
         self._send_mouse(0, 0, self.MOUSEEVENTF_RIGHTUP)
         time.sleep(0.1)
 
-    def calculate_best_path(self, target: int, current: int) -> int:
-        return ((target - current + 180) % 360) - 180
-    
-    def take_yall_pitch_from_clipboard(self):
-        texto = pyperclip.paste()
-        partes = texto.strip().split()
+    def _send_mouse_wheel(self, amount: int) -> None:
+        """
+        Send a mouse wheel event.
+        Args:
+            amount (int): The amount to scroll. Positive for up, negative for down.
+        """
+        extra = ctypes.c_ulong(0)
+        mouse_data = ctypes.c_ulong(ctypes.c_long(amount).value & 0xFFFFFFFF)
+        inp = INPUT(
+            type=self.INPUT_MOUSE,
+            union=INPUTUNION(
+                mi=MOUSEINPUT(
+                    0, 0, mouse_data, self.MOUSEEVENTF_WHEEL, 0, ctypes.pointer(extra)
+                )
+            ),
+        )
+        self._send_input(inp)
 
-        if len(partes) < 5:
-            raise ValueError("CCC inválido")
+    def scroll_mouse(
+        self, direction: str, clicks: int = 1, interval: float = 0.05
+    ) -> None:
+        """
+        Scroll the mouse wheel in the specified direction.
+        Args:
+            direction (str): "up" or "down"
+            clicks (int): number of scroll clicks
+            interval (float): time interval between each click
+        """
+        direction = direction.lower()
+        if direction not in ("up", "down"):
+            raise ValueError("direction deve ser 'up' ou 'down'")
 
-        yaw = float(partes[3])
-        pitch = float(partes[4])
-        return yaw, pitch
-    
+        delta = self.WHEEL_DELTA if direction == "up" else -self.WHEEL_DELTA
 
-    def ccc(self, max_tentativas: int = 3, timeout: float = 5.0) -> None:
-
-        for tentativa in range(1, max_tentativas + 1):
-
-            logging.info(f"Tentativa CCC {tentativa}/{max_tentativas}")
-            pyperclip.copy("")
-            self.press("tab")
-            time.sleep(0.3)
-            self.write_text("CCC")
-            time.sleep(0.3)
-            self.press("enter")
-            inicio = time.time()
-            while time.time() - inicio < timeout:
-
-                time.sleep(0.5)
-                try:
-
-                    yaw, pitch = self.take_yall_pitch_from_clipboard()
-                    return
-                except Exception:
-
-                    continue
-            logging.warning("Timeout ao esperar resposta do CCC.")
-        raise TimeoutError("Falha ao obter resposta válida do CCC após 3 tentativas.")
-
-    def centralize(self, yaw_base: float, pitch_base: float, pixels_per_degree: float) -> None:
-
-        self.ccc()
-        time.sleep(1)
-        yaw_atual, pitch_atual = self.take_yall_pitch_from_clipboard()
-        diff_yaw = self.calculate_best_path(yaw_base, yaw_atual)
-        diff_pitch = pitch_base - pitch_atual
-        pixels_x = int(diff_yaw * pixels_per_degree)
-        pixels_y = int(-diff_pitch * pixels_per_degree)
-        self.move_mouse_relative(pixels_x, pixels_y)
-    
-    def move_mouse_grau(self, diff_yaw: float, diff_pitch: float, pixels_per_degree: float) -> None:
-        pixels_x = int(diff_yaw * pixels_per_degree)
-        pixels_y = int(-diff_pitch * pixels_per_degree)
-        self.move_mouse_relative(pixels_x, pixels_y)
-        time.sleep(0.3)
+        for _ in range(clicks):
+            self._send_mouse_wheel(delta)
+            time.sleep(interval)
