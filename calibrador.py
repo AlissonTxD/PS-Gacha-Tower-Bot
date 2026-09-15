@@ -1,7 +1,7 @@
 import ctypes
 import time
-import pyperclip
 
+import pyperclip
 
 # ============================================================
 # CONFIGURAÇÃO
@@ -26,13 +26,14 @@ MOUSEEVENTF_MOVE = 0x0001
 # ESTRUTURAS DO WINDOWS
 # ============================================================
 
+
 class KEYBDINPUT(ctypes.Structure):
     _fields_ = [
         ("wVk", ctypes.c_ushort),
         ("wScan", ctypes.c_ushort),
         ("dwFlags", ctypes.c_ulong),
         ("time", ctypes.c_ulong),
-        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
+        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong)),
     ]
 
 
@@ -43,29 +44,24 @@ class MOUSEINPUT(ctypes.Structure):
         ("mouseData", ctypes.c_ulong),
         ("dwFlags", ctypes.c_ulong),
         ("time", ctypes.c_ulong),
-        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
+        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong)),
     ]
 
 
 class INPUT_UNION(ctypes.Union):
-    _fields_ = [
-        ("ki", KEYBDINPUT),
-        ("mi", MOUSEINPUT)
-    ]
+    _fields_ = [("ki", KEYBDINPUT), ("mi", MOUSEINPUT)]
 
 
 class INPUT(ctypes.Structure):
     _anonymous_ = ("u",)
 
-    _fields_ = [
-        ("type", ctypes.c_ulong),
-        ("u", INPUT_UNION)
-    ]
+    _fields_ = [("type", ctypes.c_ulong), ("u", INPUT_UNION)]
 
 
 # ============================================================
 # TECLADO
 # ============================================================
+
 
 def press_key(vk):
     extra = ctypes.c_ulong(0)
@@ -73,34 +69,21 @@ def press_key(vk):
     inp = INPUT(
         type=INPUT_KEYBOARD,
         ki=KEYBDINPUT(
-            wVk=vk,
-            wScan=0,
-            dwFlags=0,
-            time=0,
-            dwExtraInfo=ctypes.pointer(extra)
-        )
+            wVk=vk, wScan=0, dwFlags=0, time=0, dwExtraInfo=ctypes.pointer(extra)
+        ),
     )
 
-    user32.SendInput(
-        1,
-        ctypes.byref(inp),
-        ctypes.sizeof(INPUT)
-    )
+    user32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(INPUT))
 
     time.sleep(0.05)
 
     inp.ki.dwFlags = KEYEVENTF_KEYUP
 
-    user32.SendInput(
-        1,
-        ctypes.byref(inp),
-        ctypes.sizeof(INPUT)
-    )
+    user32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(INPUT))
 
 
 def write_text(text):
     for char in text:
-
         vk = ord(char.upper())
 
         extra = ctypes.c_ulong(0)
@@ -108,34 +91,23 @@ def write_text(text):
         inp = INPUT(
             type=INPUT_KEYBOARD,
             ki=KEYBDINPUT(
-                wVk=vk,
-                wScan=0,
-                dwFlags=0,
-                time=0,
-                dwExtraInfo=ctypes.pointer(extra)
-            )
+                wVk=vk, wScan=0, dwFlags=0, time=0, dwExtraInfo=ctypes.pointer(extra)
+            ),
         )
 
-        user32.SendInput(
-            1,
-            ctypes.byref(inp),
-            ctypes.sizeof(INPUT)
-        )
+        user32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(INPUT))
 
         time.sleep(0.03)
 
         inp.ki.dwFlags = KEYEVENTF_KEYUP
 
-        user32.SendInput(
-            1,
-            ctypes.byref(inp),
-            ctypes.sizeof(INPUT)
-        )
+        user32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(INPUT))
 
 
 # ============================================================
 # MOUSE
 # ============================================================
+
 
 def move_mouse_relative(x, y):
 
@@ -149,20 +121,17 @@ def move_mouse_relative(x, y):
             mouseData=0,
             dwFlags=MOUSEEVENTF_MOVE,
             time=0,
-            dwExtraInfo=ctypes.pointer(extra)
-        )
+            dwExtraInfo=ctypes.pointer(extra),
+        ),
     )
 
-    user32.SendInput(
-        1,
-        ctypes.byref(inp),
-        ctypes.sizeof(INPUT)
-    )
+    user32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(INPUT))
 
 
 # ============================================================
 # CCC
 # ============================================================
+
 
 def executar_ccc():
 
@@ -186,23 +155,20 @@ def executar_ccc():
     inicio = time.time()
 
     while time.time() - inicio < 5:
-
         time.sleep(0.2)
 
         try:
-
             texto = pyperclip.paste()
 
             partes = texto.strip().split()
 
             if len(partes) >= 5:
-
                 yaw = float(partes[3])
                 pitch = float(partes[4])
 
                 return yaw, pitch
 
-        except Exception:
+        except Exception:  # noqa: BLE001, S110
             pass
 
     raise TimeoutError("Falha ao obter resposta do CCC.")
@@ -211,6 +177,7 @@ def executar_ccc():
 # ============================================================
 # CALIBRAÇÃO
 # ============================================================
+
 
 def calibrar():
 
@@ -298,13 +265,10 @@ def calibrar():
 # ============================================================
 
 if __name__ == "__main__":
-
     try:
-
         calibrar()
 
-    except Exception as e:
-
+    except Exception as e:  # noqa: BLE001
         print()
         print("ERRO:")
         print(e)

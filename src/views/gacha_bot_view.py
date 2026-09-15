@@ -11,7 +11,7 @@ class GachaBotView:
 
         while True:
             print("Menu do Bot de Gacha\n")
-            print("1. Iniciar Bot Trap")
+            print(f"1. Iniciar Bot Trap \n    gachas:{self.gachavm.qtd_gacha}\n    pegos:{self.gachavm.qtd_pego}\n    traps:{self.gachavm.qtd_trap}")
             print("2. Iniciar test de gachas")
             print("3. Sair")
 

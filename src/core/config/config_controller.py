@@ -1,11 +1,10 @@
 import json
 from pathlib import Path
-from time import sleep
 
 CONFIG_FILE = Path(__file__).parent / "config.json"
 
 
-class Config:
+class ConfigController:
     def __init__(self):
         pass
 
@@ -19,7 +18,7 @@ class Config:
 
 
 if __name__ == "__main__":
-    config = Config()
+    config = ConfigController()
     configuraçao = config.load_config()
     configuraçao["quantities"]["gacha_boxes"] = 40
     config.save_config(configuraçao)

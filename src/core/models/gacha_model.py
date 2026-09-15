@@ -1,8 +1,7 @@
 from time import sleep
 
-from src.core.config import config
 from src.core.services.ctypes_services import CtypesServices
-from src.core.services.validation_services import ValidationUtils
+from src.core.services.validation_services import ValidationServices
 
 
 class GachaModel:
@@ -10,7 +9,7 @@ class GachaModel:
         self.ctype = CtypesServices()
         self.first_time = True
         self.validator = ValidationUtils()
-        self.yaw_base = config["yaw"]
+        self.yaw_base = config_controller["yaw"]
 
     def feed_gacha(self, side: str):
         if side == "right":
@@ -21,63 +20,63 @@ class GachaModel:
             last_move = 40
         #test tirar o 1 centralize
         #self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
-        self.ctype.move_mouse_grau(first_move, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(first_move, 0, config_controller["pixel_per_grau"])
         self.__open_inventory()
         if self.first_time:
             self.__first_row()
         else:
             self.__refeed_row()
-        self.ctype.move_mouse_grau(last_move, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(last_move, 0, config_controller["pixel_per_grau"])
 
     def feed_gacha_pair_trap(self):
-        self.ctype.move_mouse_grau(40, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(40, 0, config_controller["pixel_per_grau"])
         self.__open_inventory()
         self._feed_gacha_trap()
-        self.ctype.move_mouse_grau(-80, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(-80, 0, config_controller["pixel_per_grau"])
         self.__open_inventory()
         self._feed_gacha_trap()
-        self.ctype.move_mouse_grau(40, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(40, 0, config_controller["pixel_per_grau"])
 
     def __open_inventory(self):
         self.ctype.press("f")
-        self.validator.wait_open(*config["validation"]["inventory_validation"], key="f")
+        self.validator.wait_open(*config_controller["validation"]["inventory_validation"], key="f")
 
     def __first_row(self):
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["search"])
+        self.ctype.move_mouse_absolute(*config_controller["dino_inventory"]["search"])
         self.ctype.left_click()
         self.ctype.write_text("pe")
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["transfer_all"])
+        self.ctype.move_mouse_absolute(*config_controller["dino_inventory"]["transfer_all"])
         self.ctype.left_click()
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["search"])
-        self.ctype.left_click()
-        self.ctype.write_text("pe")
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["drop_all"])
-        self.ctype.left_click()
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["search"])
+        self.ctype.move_mouse_absolute(*config_controller["dino_inventory"]["search"])
         self.ctype.left_click()
         self.ctype.write_text("pe")
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["first_slot"])
+        self.ctype.move_mouse_absolute(*config_controller["dino_inventory"]["drop_all"])
+        self.ctype.left_click()
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["search"])
+        self.ctype.left_click()
+        self.ctype.write_text("pe")
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["first_slot"])
         self.ctype.left_click()
         for _ in range(15):
             self.ctype.press("t")
             sleep(0.35)
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["search"])
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["search"])
         self.ctype.left_click()
         for _ in range(5):
             self.ctype.press("backspace")
         self.ctype.write_text("m")
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
         sleep(1)
 
     def __refeed_row(self):
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["search"])
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["search"])
         self.ctype.left_click()
         self.ctype.write_text("m")
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["transfer_all"])
         self.ctype.left_click()
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["first_slot"])
+        self.ctype.move_mouse_absolute(*config_controller["dino_inventory"]["first_slot"])
         for _ in range(5):
             self.ctype.press("t")
             sleep(0.4)
@@ -85,18 +84,18 @@ class GachaModel:
         sleep(1)
 
     def test_gachas(self):
-        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
-        self.ctype.move_mouse_grau(40, 0, config["pixel_per_grau"])
+        self.ctype.centralize(self.yaw_base, 0, config_controller["pixel_per_grau"])
+        self.ctype.move_mouse_grau(40, 0, config_controller["pixel_per_grau"])
         self.__open_inventory()
         self.ctype.press("escape")
         sleep(1)
-        self.ctype.move_mouse_grau(-80, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(-80, 0, config_controller["pixel_per_grau"])
         self.__open_inventory()
         self.ctype.press("escape")
         sleep(1)
 
     def _feed_gacha_trap(self):
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["transfer_all"])
+        self.ctype.move_mouse_absolute(*config_controller["player_inventory"]["transfer_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
         sleep(1)

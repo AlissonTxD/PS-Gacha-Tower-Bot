@@ -1,6 +1,6 @@
 from time import sleep
 
-from src.core.config.config import config
+from src.core.config.config_controller import config
 from src.core.services.ctypes_services import CtypesServices
 from src.core.services.validation_services import ValidationUtils
 

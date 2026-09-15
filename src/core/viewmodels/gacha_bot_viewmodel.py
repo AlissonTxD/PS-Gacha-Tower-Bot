@@ -1,5 +1,6 @@
 from time import sleep
 
+from src.core.config.config_controller import ConfigController
 from src.core.models.crystal_cracker_model import CrystalCracker
 from src.core.models.gacha_model import GachaModel
 from src.core.models.pego_model import PegoModel
@@ -14,15 +15,20 @@ QTD_GACHA = 40
 
 class GachaBotViewModel:
     def __init__(self):
-        self.render_station = render_station_model()
-        self.teleporter = TeleportModel()
-        self.pego = PegoModel()
-        self.cracker = CrystalCracker()
-        self.gacha = GachaModel()
-        self.ctype = CtypesServices()
-        self.trap = TrapModel()
+        self.config = ConfigController()
+        self.general_config = self.config.load_config()
+        self.qtd_gacha = self.general_config["quantities"]["gacha_boxes"]
+        self.qtd_pego = self.general_config["quantities"]["pego_boxes"]
+        self.qtd_trap = self.general_config["quantities"]["trap_boxes"]
+        # self.render_station = render_station_model()
+        # self.teleporter = TeleportModel()
+        # self.pego = PegoModel()
+        # self.cracker = CrystalCracker()
+        # self.gacha = GachaModel()
+        # self.ctype = CtypesServices()
+        # self.trap = TrapModel()
 
-    #Main functions
+    # Main functions
     def start_trap(self):
         try:
             sleep(5)

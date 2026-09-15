@@ -11,9 +11,8 @@ class ValidationServices:
     def __init__(self):
         self.ctype = CtypesServices()
 
-    def __nearby_colors(self, color, aim_color,  tolerance=1):
-        return all(abs(c - a) <=  tolerance for c, a in zip(color, aim_color))
-
+    def __nearby_colors(self, color, aim_color, tolerance=1):
+        return all(abs(c - a) <= tolerance for c, a in zip(color, aim_color))
 
     def wait_open(self, x, y, aim_color, key, tolerance=3):
         max_try = 3
@@ -21,18 +20,12 @@ class ValidationServices:
 
         with mss.mss() as sct:
             for each_try in range(1, max_try + 1):
-
                 logging.info(f"verify open: {each_try}/{max_try}")  # noqa: LOG015
 
                 start_time = time.time()
 
                 while time.time() - start_time < timeout:
-                    monitor = {
-                        "top": y,
-                        "left": x,
-                        "width": 1,
-                        "height": 1
-                    }
+                    monitor = {"top": y, "left": x, "width": 1, "height": 1}
 
                     img = sct.grab(monitor)
                     pixel = img.pixel(0, 0)
@@ -49,17 +42,11 @@ class ValidationServices:
                     self.ctype.press(key)
 
         raise TimeoutError("Falha ao abrir após 3 tentativas.")
-            
 
     def wait_close(self, x, y, aim_color, tolerance=1):
         with mss.mss() as sct:
             while True:
-                monitor = {
-                    "top": y,
-                    "left": x,
-                    "width": 1,
-                    "height": 1
-                }
+                monitor = {"top": y, "left": x, "width": 1, "height": 1}
 
                 img = sct.grab(monitor)
                 pixel = img.pixel(0, 0)
@@ -72,17 +59,13 @@ class ValidationServices:
 
     def is_pixel_color(self, x, y, aim_color, tolerance=1):
         with mss.mss() as sct:
-            monitor = {
-                "top": y,
-                "left": x,
-                "width": 1,
-                "height": 1
-            }
+            monitor = {"top": y, "left": x, "width": 1, "height": 1}
 
             img = sct.grab(monitor)
             pixel = img.pixel(0, 0)
 
             return self.__nearby_colors(pixel, aim_color, tolerance)
-    
+
+
 if __name__ == "__main__":
     pass

@@ -1,8 +1,7 @@
 from time import sleep
 
-from src.core.config.config import config
 from src.core.services.ctypes_services import CtypesServices
-from src.core.services.validation_services import ValidationUtils
+from src.core.services.validation_services import ValidationServices
 
 
 class TrapModel:

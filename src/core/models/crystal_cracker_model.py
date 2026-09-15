@@ -1,21 +1,22 @@
 from time import sleep
 
-from src.core.config.config import config
 from src.core.services.ctypes_services import CtypesServices
-from src.core.services.validation_services import ValidationUtils
+from src.core.services.gt_services import GtServices
+from src.core.services.validation_services import ValidationServices
 
 
 class CrystalCracker:
-    def __init__(self):
-        self.validator = ValidationUtils()
+    def __init__(self, general_config: dict):
+        self.validator = ValidationServices()
         self.ctype = CtypesServices()
-        self.yaw = config["yaw"]
+        self.gt = GtServices()
+        self.configs = general_config
 
     def crack_crystals(self):
         self._open_crystal()
-        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
+        self.gt.centralize(self.configs["calibration"]["yaw"], 0, self.configs["calibration"]["pixel_per_degree"])
         self._put_in_dedicated()
-        self.ctype.centralize(self.yaw, 0, config["pixel_per_grau"])
+        self.gt.centralize(self.configs["calibration"]["yaw"], 0, self.configs["calibration"]["pixel_per_degree"])
 
     def grind_items(self):
         self.ctype.move_mouse_grau(90, 0, config["pixel_per_grau"])
