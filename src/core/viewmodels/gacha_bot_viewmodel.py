@@ -1,12 +1,12 @@
 from time import sleep
 
-from src.core.models.render_station_model import render_station_model
-from src.core.models.teleport_model import TeleportModel
-from src.core.models.pego_model import PegoModel
 from src.core.models.crystal_cracker_model import CrystalCracker
 from src.core.models.gacha_model import GachaModel
+from src.core.models.pego_model import PegoModel
+from src.core.models.render_station_model import render_station_model
+from src.core.models.teleport_model import TeleportModel
 from src.core.models.trap_model import TrapModel
-from src.core.ctypes_utils import CtypesUtils
+from src.core.services.ctypes_services import CtypesServices
 
 QTD_PEGO = 12
 QTD_GACHA = 40
@@ -19,7 +19,7 @@ class GachaBotViewModel:
         self.pego = PegoModel()
         self.cracker = CrystalCracker()
         self.gacha = GachaModel()
-        self.ctype = CtypesUtils()
+        self.ctype = CtypesServices()
         self.trap = TrapModel()
 
     #Main functions
@@ -38,7 +38,7 @@ class GachaBotViewModel:
                 self.render_station.join_bed_end()
                 sleep(3)
                 self.render_station.leave_bed_start()
-        except Exception as e:
+        except RuntimeError as e:
             self.record_replay()
             print(f"Erro salvo: {e}")
 

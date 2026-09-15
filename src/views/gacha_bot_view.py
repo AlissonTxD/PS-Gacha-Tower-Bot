@@ -10,19 +10,20 @@ class GachaBotView:
     def menu(self):
 
         while True:
-            os.system("cls")
-            print("Menu do Bot de Gacha")
+            print("Menu do Bot de Gacha\n")
             print("1. Iniciar Bot Trap")
             print("2. Iniciar test de gachas")
             print("3. Sair")
 
             choice = input("Escolha uma opção: ")
+            os.system("cls")
             match choice:
                 case "1":
-                    print("1")
+                    print("voce escolheu o 1 \n")
                 case "2":
-                    print("2")
+                    print("voce escolheu o 2 \n")
                 case "3":
-                    print("3")
+                    print("voce escolheu o 3 \n")
+                    break
                 case _:
                     print("Opção inválida, tente novamente.")

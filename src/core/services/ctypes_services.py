@@ -1,6 +1,5 @@
 ﻿import ctypes
 import time
-from typing import dict
 
 PUL = ctypes.POINTER(ctypes.c_ulong)
 
@@ -40,7 +39,7 @@ class INPUT(ctypes.Structure):
     ]
 
 
-class CtypesUtils:
+class CtypesServices:
     INPUT_MOUSE = 0
     INPUT_KEYBOARD = 1
 

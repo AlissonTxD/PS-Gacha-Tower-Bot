@@ -1,14 +1,15 @@
-from time import sleep
-import time
-import mss
 import logging
+import time
+from time import sleep
 
-from src.core.config import config
-from src.core.ctypes_utils import CtypesUtils
+import mss
 
-class ValidationUtils:
+from src.core.services.ctypes_services import CtypesServices
+
+
+class ValidationServices:
     def __init__(self):
-        self.ctype = CtypesUtils()
+        self.ctype = CtypesServices()
 
     def __nearby_colors(self, color, aim_color,  tolerance=1):
         return all(abs(c - a) <=  tolerance for c, a in zip(color, aim_color))
@@ -21,7 +22,7 @@ class ValidationUtils:
         with mss.mss() as sct:
             for each_try in range(1, max_try + 1):
 
-                logging.info(f"verify open: {each_try}/{max_try}")
+                logging.info(f"verify open: {each_try}/{max_try}")  # noqa: LOG015
 
                 start_time = time.time()
 
@@ -37,14 +38,14 @@ class ValidationUtils:
                     pixel = img.pixel(0, 0)
 
                     if self.__nearby_colors(pixel, aim_color, tolerance):
-                        logging.info("Pixel detectado. Inventário aberto.")
+                        logging.info("Pixel detectado. Inventário aberto.")  # noqa: LOG015
                         return True
 
                     sleep(0.05)
 
-                logging.warning("Timeout nessa tentativa.")
+                logging.warning("Timeout nessa tentativa.")  # noqa: LOG015
                 if each_try < max_try:
-                    logging.info(f"Reapertando tecla: {key}")
+                    logging.info(f"Reapertando tecla: {key}")  # noqa: LOG015
                     self.ctype.press(key)
 
         raise TimeoutError("Falha ao abrir após 3 tentativas.")

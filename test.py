@@ -1,10 +1,11 @@
-from src.core.ctypes_utils import CtypesUtils
-from src.core.validation_utils import ValidationUtils
 from time import sleep
-from src.core.config import config
+
+from src.core.config.config import config
+from src.core.services.ctypes_services import CtypesServices
+from src.core.services.validation_services import ValidationUtils
 
 validator = ValidationUtils()
-ctype = CtypesUtils()
+ctype = CtypesServices()
 
 while True:
     validator.wait_open(*config["validation"]["inventory_validation"], key="v")

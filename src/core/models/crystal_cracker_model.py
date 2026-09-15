@@ -1,14 +1,14 @@
-from src.core.ctypes_utils import CtypesUtils
-from src.core.config import config
-from src.core.validation_utils import ValidationUtils
-
 from time import sleep
+
+from src.core.config.config import config
+from src.core.services.ctypes_services import CtypesServices
+from src.core.services.validation_services import ValidationUtils
 
 
 class CrystalCracker:
     def __init__(self):
         self.validator = ValidationUtils()
-        self.ctype = CtypesUtils()
+        self.ctype = CtypesServices()
         self.yaw = config["yaw"]
 
     def crack_crystals(self):

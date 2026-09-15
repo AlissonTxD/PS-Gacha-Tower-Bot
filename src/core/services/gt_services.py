@@ -1,13 +1,14 @@
 import logging
 from time import sleep, time
 
-from ctypes_utils import CtypesUtils
 from pyperclip import copy, paste
 
+from src.core.services.ctypes_services import CtypesServices
 
-class GtUtils:
+
+class GtServices:
     def __init__(self):
-        self.ctype = CtypesUtils()
+        self.ctype = CtypesServices()
 
     def move_mouse_grau(
         self, diff_yaw: float, diff_pitch: float, pixels_per_degree: float

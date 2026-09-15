@@ -1,13 +1,13 @@
-from src.core.ctypes_utils import CtypesUtils
-from src.core.validation_utils import ValidationUtils
-from src.core.config import config
 from time import sleep
 
+from src.core.config.config import config
+from src.core.services.ctypes_services import CtypesServices
+from src.core.services.validation_services import ValidationUtils
 
 
 class render_station_model:
     def __init__(self):
-        self.ctype = CtypesUtils()
+        self.ctype = CtypesServices()
         self.validator = ValidationUtils()
         self.yaw_base = config["yaw"]
 
