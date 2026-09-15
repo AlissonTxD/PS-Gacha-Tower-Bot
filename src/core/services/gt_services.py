@@ -42,6 +42,27 @@ class GtServices:
         pixels_y = int(-diff_pitch * pixels_per_degree)
         self.ctype.move_mouse_relative(pixels_x, pixels_y)
 
+    def put_in_dedicated(self, pixel_per_degree: float) -> None:
+        """
+        Move trought the dedicates 2x4 and press "e" to deposit the resources
+        Args:
+            pixel_per_degree (float): pixel per degree config
+        """
+        self.move_mouse_grau(15, 60, pixel_per_degree)
+        self.ctype.press("e")
+        self.move_mouse_grau(0, -30, pixel_per_degree)
+        self.ctype.press("e")
+        for _ in range(2):
+            self.move_mouse_grau(0, -40, pixel_per_degree)
+            self.ctype.press("e")
+        self.move_mouse_grau(-30, 0, pixel_per_degree)
+        self.ctype.press("e")
+        for _ in range(2):
+            self.move_mouse_grau(0, 40, pixel_per_degree)
+            self.ctype.press("e")
+        self.move_mouse_grau(0, 30, pixel_per_degree)
+        self.ctype.press("e")
+
     def __calculate_best_path(self, target: int, current: int) -> int:
         """
         Calculate the best path to move from current to target angle, considering the circular nature of angles.

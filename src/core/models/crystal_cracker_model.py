@@ -1,25 +1,20 @@
 from time import sleep
 
-from src.core.services.ctypes_services import CtypesServices
-from src.core.services.gt_services import GtServices
-from src.core.services.validation_services import ValidationServices
+from .base_model import BaseModel
 
 
-class CrystalCracker:
-    def __init__(self, general_config: dict):
-        self.validator = ValidationServices()
-        self.ctype = CtypesServices()
-        self.gt = GtServices()
-        self.configs = general_config
+class CrystalCracker(BaseModel):
+    def __init__(self, general_config):
+        super().__init__(general_config)
 
     def crack_crystals(self):
         self._open_crystal()
-        self.gt.centralize(self.configs["calibration"]["yaw"], 0, self.configs["calibration"]["pixel_per_degree"])
-        self._put_in_dedicated()
-        self.gt.centralize(self.configs["calibration"]["yaw"], 0, self.configs["calibration"]["pixel_per_degree"])
+        self.gt.centralize(*self.calibration)
+        self.gt.put_in_dedicated(self.configs["calibration"]["pixel_per_degree"])
+        self.gt.centralize(*self.calibration)
 
     def grind_items(self):
-        self.ctype.move_mouse_grau(90, 0, config["pixel_per_grau"])
+        self.ctype.move_mouse_grau(90, 0, self.configs["calibration"]["pixel_per_degree"])
         self.__place_in_vault(["gate"])
         self.ctype.move_mouse_grau(-180, 0, config["pixel_per_grau"])
         self.__open_inventory()
@@ -59,26 +54,6 @@ class CrystalCracker:
             print("vault full, skipando carai")
         self.ctype.press("escape")
         sleep(1)
-
-    def _put_in_dedicated(self):
-        self.ctype.move_mouse_grau(15, 60, config["pixel_per_grau"])
-        self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, -30, config["pixel_per_grau"])
-        self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, -40, config["pixel_per_grau"])
-        self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, -40, config["pixel_per_grau"])
-        self.ctype.press("e")
-
-
-        self.ctype.move_mouse_grau(-30, 0, config["pixel_per_grau"])
-        self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, 40, config["pixel_per_grau"])
-        self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, 40, config["pixel_per_grau"])
-        self.ctype.press("e")
-        self.ctype.move_mouse_grau(0, 30, config["pixel_per_grau"])
-        self.ctype.press("e")
 
     def __open_inventory(self):
         self.ctype.press("f")

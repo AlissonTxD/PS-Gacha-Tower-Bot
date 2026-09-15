@@ -23,7 +23,7 @@ class GachaBotViewModel:
         # self.render_station = render_station_model()
         # self.teleporter = TeleportModel()
         # self.pego = PegoModel()
-        # self.cracker = CrystalCracker()
+        self.cracker = CrystalCracker(self.general_config)
         # self.gacha = GachaModel()
         # self.ctype = CtypesServices()
         # self.trap = TrapModel()
