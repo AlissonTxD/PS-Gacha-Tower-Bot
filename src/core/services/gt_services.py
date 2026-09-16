@@ -122,6 +122,13 @@ class GtServices:
             logging.warning("Timeout ao esperar resposta do CCC.")  # noqa: LOG015
         raise TimeoutError("Falha ao obter resposta válida do CCC após 3 tentativas.")
 
+    def record_replay(self):
+        self.ctype.key_down("leftalt")
+        sleep(0.5)
+        self.ctype.key_down("f10")
+        sleep(0.5)
+        self.ctype.key_up("f10")
+        self.ctype.key_up("leftalt")
 
 if __name__ == "__main__":
     print("test")

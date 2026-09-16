@@ -1,13 +1,13 @@
 from time import sleep
 
 from src.core.config.config_controller import ConfigController
-from src.core.models.crystal_cracker_model import CrystalCracker
+from src.core.models.crystal_cracker_model import CrystalCrackerModel
 from src.core.models.gacha_model import GachaModel
+from src.core.models.grinder_model import GrinderModel
 from src.core.models.pego_model import PegoModel
-from src.core.models.render_station_model import render_station_model
+from src.core.models.render_station_model import RenderStationModel
 from src.core.models.teleport_model import TeleportModel
 from src.core.models.trap_model import TrapModel
-from src.core.services.ctypes_services import CtypesServices
 
 QTD_PEGO = 12
 QTD_GACHA = 40
@@ -20,15 +20,22 @@ class GachaBotViewModel:
         self.qtd_gacha = self.general_config["quantities"]["gacha_boxes"]
         self.qtd_pego = self.general_config["quantities"]["pego_boxes"]
         self.qtd_trap = self.general_config["quantities"]["trap_boxes"]
-        # self.render_station = render_station_model()
-        # self.teleporter = TeleportModel()
-        # self.pego = PegoModel()
-        self.cracker = CrystalCracker(self.general_config)
-        # self.gacha = GachaModel()
-        # self.ctype = CtypesServices()
-        # self.trap = TrapModel()
+        self.render_station = RenderStationModel(self.general_config)
+        self.teleporter = TeleportModel(self.general_config)
+        self.pego = PegoModel(self.general_config)
+        self.cracker = CrystalCrackerModel(self.general_config)
+        self.gacha = GachaModel(self.general_config)
+        self.trap = TrapModel(self.general_config)
+        self.grinder = GrinderModel(self.general_config)
 
     # Main functions
+    def start_bot_trap(self) -> None:
+        """
+            Starts the gacha bot feeding with traps
+        """
+        print("começo carai")
+        sleep(10)
+
     def start_trap(self):
         try:
             sleep(5)
@@ -79,11 +86,3 @@ class GachaBotViewModel:
             trap += 1
             if trap > 3:
                 trap = 1
-
-    def record_replay(self):
-        self.ctype.key_down("leftalt")
-        sleep(0.5)
-        self.ctype.key_down("f10")
-        sleep(0.5)
-        self.ctype.key_up("f10")
-        self.ctype.key_up("leftalt")

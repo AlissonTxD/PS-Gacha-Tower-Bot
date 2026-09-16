@@ -18,7 +18,8 @@ class ConfigController:
 
 
 if __name__ == "__main__":
-    config = ConfigController()
-    configuraçao = config.load_config()
-    configuraçao["quantities"]["gacha_boxes"] = 40
-    config.save_config(configuraçao)
+    # config = ConfigController()
+    # configuraçao = config.load_config()
+    # configuraçao["quantities"]["gacha_boxes"] = 40
+    # config.save_config(configuraçao)
+    pass

@@ -1,31 +1,31 @@
 from time import sleep
 
-from src.core.services.ctypes_services import CtypesServices
-from src.core.services.validation_services import ValidationServices
+from .base_model import BaseModel
 
 
-class render_station_model:
-    def __init__(self):
-        self.ctype = CtypesServices()
-        self.validator = ValidationUtils()
-        self.yaw_base = config["yaw"]
-
+class RenderStationModel(BaseModel):
+    def __init__(self, general_config):
+        super().__init__(general_config)
 
     def leave_bed_start(self):
-        self.ctype.press(key= "e", hold = 3)
+        self.ctype.press(key="e", hold=3)
         sleep(1)
-        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
-        
+        self.gt.centralize(self.centralization_parameters)
 
     def join_bed_end(self):
-        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
+        self.gt.centralize(self.centralization_parameters)
         self.ctype.key_down("e")
-        self.validator.wait_open(*config["validation"]["tek_bed_radial_validation"],key="e")
-        self.ctype.move_mouse_absolute(*config["misc"]["lay_on"])
+        self.validator.wait_open(
+            *self.configs["validation"]["tek_bed_radial_validation"], key="e"
+        )
+        self.ctype.move_mouse_absolute(*self.configs["misc"]["lay_on"])
         self.ctype.left_click()
         self.ctype.key_up("e")
-        self.validator.wait_open(*config["validation"]["inventory_validation"],key="v")
-        self.ctype.move_mouse_absolute(*config["player_inventory"]["drop_all"])
+        self.ctype.press("v")
+        self.validator.wait_open(
+            *self.configs["validation"]["inventory_validation"], key="v"
+        )
+        self.ctype.move_mouse_absolute(*self.configs["player_inventory"]["drop_all"])
         self.ctype.left_click()
         self.ctype.press("escape")
         sleep(1)

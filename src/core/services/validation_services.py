@@ -11,10 +11,9 @@ class ValidationServices:
     def __init__(self):
         self.ctype = CtypesServices()
 
-    def __nearby_colors(self, color, aim_color, tolerance=1):
-        return all(abs(c - a) <= tolerance for c, a in zip(color, aim_color))
-
-    def wait_open(self, x, y, aim_color, key, tolerance=3):
+    def wait_open(self, validation: dict, key, tolerance=3):
+        x, y = validation["position"]
+        aim_color = validation["color"]
         max_try = 3
         timeout = 15.0
 
@@ -43,21 +42,10 @@ class ValidationServices:
 
         raise TimeoutError("Falha ao abrir após 3 tentativas.")
 
-    def wait_close(self, x, y, aim_color, tolerance=1):
-        with mss.mss() as sct:
-            while True:
-                monitor = {"top": y, "left": x, "width": 1, "height": 1}
+    def is_pixel_color(self, validation: dict, tolerance=1):
+        x, y = validation["position"]
+        aim_color = validation["color"]
 
-                img = sct.grab(monitor)
-                pixel = img.pixel(0, 0)
-                print(pixel)
-
-                if not self.__nearby_colors(pixel, aim_color, tolerance):
-                    return True
-
-                sleep(0.05)
-
-    def is_pixel_color(self, x, y, aim_color, tolerance=1):
         with mss.mss() as sct:
             monitor = {"top": y, "left": x, "width": 1, "height": 1}
 
@@ -65,6 +53,9 @@ class ValidationServices:
             pixel = img.pixel(0, 0)
 
             return self.__nearby_colors(pixel, aim_color, tolerance)
+
+    def __nearby_colors(self, color, aim_color, tolerance=1):
+        return all(abs(c - a) <= tolerance for c, a in zip(color, aim_color))
 
 
 if __name__ == "__main__":

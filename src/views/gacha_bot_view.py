@@ -20,6 +20,7 @@ class GachaBotView:
             match choice:
                 case "1":
                     print("voce escolheu o 1 \n")
+                    self.gachavm.start_bot_trap()
                 case "2":
                     print("voce escolheu o 2 \n")
                 case "3":

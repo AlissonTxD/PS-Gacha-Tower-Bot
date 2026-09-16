@@ -1,27 +1,24 @@
 from time import sleep
 
-from src.core.services.ctypes_services import CtypesServices
-from src.core.services.validation_services import ValidationServices
+from .base_model import BaseModel
 
 
-class TrapModel:
-    def __init__(self):
-        self.validator = ValidationUtils()
-        self.ctype = CtypesServices()
-        self.yaw_base = config["yaw"]
+class TrapModel(BaseModel):
+    def __init__(self, general_config):
+        super().__init__(general_config)
 
     def get_trap(self):
-        self.ctype.centralize(self.yaw_base, 0, config["pixel_per_grau"])
-        self.__takeall()
+        self.gt.centralize(self.centralization_parameters)
+        self.__take__traps()
 
-    def __takeall(self):
+    def __take__traps(self):
         self.ctype.press("f")
-        self.validator.wait_open(*config["validation"]["inventory_validation"],key="f")
+        self.validator.wait_open(*self.configs["validation"]["inventory_validation"], key="f")
         sleep(0.1)
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["search"])
+        self.ctype.move_mouse_absolute(*self.configs["dino_inventory"]["search"])
         self.ctype.left_click()
         self.ctype.write_text("trap")
-        self.ctype.move_mouse_absolute(*config["dino_inventory"]["first_slot"])
+        self.ctype.move_mouse_absolute(*self.configs["dino_inventory"]["first_slot"])
         self.ctype.left_click()
         for _ in range(150):
             self.ctype.press("t")
