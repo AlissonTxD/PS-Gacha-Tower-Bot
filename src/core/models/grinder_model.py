@@ -22,13 +22,13 @@ class GrinderModel(BaseModel):
         self.ctype.press("escape")
         sleep(1)
         self.gt.centralize(*self.centralization_parameters)
-        self.gt.put_in_dedicated()
+        self.gt.put_in_dedicated(self.pixel_per_degree)
         self.gt.centralize(*self.centralization_parameters)
 
     def __place_in_vault(self, list_of_items):
         self.open_inventory()
         sleep(1)
-        if not self.validator.is_pixel_color(*self.configs["validation"]["vault_full_validation"]):
+        if not self.validator.is_pixel_color(self.configs["validation"]["vault_full"]):
             for item in list_of_items:
                 self.ctype.move_mouse_absolute(*self.configs["player_inventory"]["search"])
                 self.ctype.left_click()

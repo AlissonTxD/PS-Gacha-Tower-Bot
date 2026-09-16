@@ -21,4 +21,4 @@ class TeleportModel(BaseModel):
         self.ctype.move_mouse_absolute(*self.configs["teleport"]["teleport_button"])
         self.ctype.left_click()
         sleep(2)
-        self.ctype.move_mouse_grau(0, 87, self.pixel_per_degree)
+        self.gt.move_mouse_grau(0, 80, self.pixel_per_degree)

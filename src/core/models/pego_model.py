@@ -7,7 +7,7 @@ class PegoModel(BaseModel):
     def __init__(self, general_config):
         super().__init__(general_config)
 
-    def collect_crystals(self):
+    def collect_crystals(self) -> None:
         self.gt.move_mouse_grau(0, 10, self.pixel_per_degree)
         self.open_inventory()
         self.ctype.move_mouse_absolute(*self.configs["player_inventory"]["drop_all"])

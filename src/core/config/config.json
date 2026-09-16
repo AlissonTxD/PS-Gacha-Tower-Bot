@@ -1,8 +1,8 @@
 {
     "version": 1,
     "quantities": {
-        "gacha_boxes": 40,
-        "pego_boxes": 12,
+        "gacha_boxes": 3,
+        "pego_boxes": 2,
         "trap_boxes": 3
     },
     "calibration": {
@@ -35,10 +35,6 @@
         "drop_all": [
             617,
             270
-        ],
-        "first_slot": [
-            296,
-            369
         ]
     },
     "dino_inventory": {
@@ -90,17 +86,6 @@
                 208,
                 247,
                 255
-            ]
-        },
-        "tek_bed_buff": {
-            "position": [
-                2097,
-                1350
-            ],
-            "color": [
-                193,
-                171,
-                61
             ]
         },
         "tek_bed_radial": {
