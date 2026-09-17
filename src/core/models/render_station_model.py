@@ -4,8 +4,8 @@ from .base_model import BaseModel
 
 
 class RenderStationModel(BaseModel):
-    def __init__(self, general_config):
-        super().__init__(general_config)
+    def __init__(self, general_config, stop_event):
+        super().__init__(general_config, stop_event)
 
     def leave_bed(self):
         self.ctype.press(key="e", hold=3)

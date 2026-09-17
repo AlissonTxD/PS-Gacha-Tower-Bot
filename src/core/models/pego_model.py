@@ -4,8 +4,8 @@ from .base_model import BaseModel
 
 
 class PegoModel(BaseModel):
-    def __init__(self, general_config):
-        super().__init__(general_config)
+    def __init__(self, general_config, stop_event):
+        super().__init__(general_config, stop_event)
 
     def collect_crystals(self) -> None:
         self.gt.move_mouse_grau(0, 10, self.pixel_per_degree)

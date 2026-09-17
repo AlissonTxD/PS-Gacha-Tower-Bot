@@ -4,8 +4,8 @@ from .base_model import BaseModel
 
 
 class GachaModel(BaseModel):
-    def __init__(self, general_config):
-        super().__init__(general_config)
+    def __init__(self, general_config, stop_event):
+        super().__init__(general_config, stop_event)
 
     def feed_gacha_pair_trap(self):
         self.gt.move_mouse_grau(40, 0, self.pixel_per_degree)

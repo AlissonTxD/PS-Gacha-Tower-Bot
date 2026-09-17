@@ -118,13 +118,13 @@ class GachaBotViewModel:
         self.qtd_gacha = self.general_config["quantities"]["gacha_boxes"]
         self.qtd_pego = self.general_config["quantities"]["pego_boxes"]
         self.qtd_trap = self.general_config["quantities"]["trap_boxes"]
-        self.render_station = RenderStationModel(self.general_config)
+        self.render_station = RenderStationModel(self.general_config, self.stop_event)
         self.teleporter = TeleportModel(self.general_config, self.stop_event)
-        self.pego = PegoModel(self.general_config)
-        self.cracker = CrystalCrackerModel(self.general_config)
-        self.gacha = GachaModel(self.general_config)
-        self.trap = TrapModel(self.general_config)
-        self.grinder = GrinderModel(self.general_config)
+        self.pego = PegoModel(self.general_config, self.stop_event)
+        self.cracker = CrystalCrackerModel(self.general_config, self.stop_event)
+        self.gacha = GachaModel(self.general_config, self.stop_event)
+        self.trap = TrapModel(self.general_config, self.stop_event)
+        self.grinder = GrinderModel(self.general_config, self.stop_event)
 
     def __wait(self, seconds: float) -> bool: 
         """ Waits for the specified time. Returns False if the bot was stopped during the wait. """ 

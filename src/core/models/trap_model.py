@@ -4,8 +4,8 @@ from .base_model import BaseModel
 
 
 class TrapModel(BaseModel):
-    def __init__(self, general_config):
-        super().__init__(general_config)
+    def __init__(self, general_config, stop_event):
+        super().__init__(general_config, stop_event)
 
     def get_trap(self):
         self.gt.centralize(*self.centralization_parameters)
