@@ -16,12 +16,12 @@ class RenderStationModel(BaseModel):
     def join_bed(self):
         self.gt.centralize(*self.centralization_parameters)
         self.ctype.key_down("e")
-        self.validator.wait_open(self.configs["validation"]["tek_bed_radial"], key="e")
+        if not self.validator.wait_open(self.configs["validation"]["tek_bed_radial"], key="e"): return
         self.ctype.move_mouse_absolute(*self.configs["misc"]["lay_on"])
         self.ctype.left_click()
         self.ctype.key_up("e")
         self.ctype.press("v")
-        self.validator.wait_open(self.configs["validation"]["inventory"], key="v")
+        if not self.validator.wait_open(self.configs["validation"]["inventory"], key="v"):return
         self.ctype.move_mouse_absolute(*self.configs["player_inventory"]["drop_all"])
         self.ctype.left_click()
         self.ctype.press("escape")

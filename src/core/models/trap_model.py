@@ -13,7 +13,7 @@ class TrapModel(BaseModel):
 
     def __take__traps(self):
         self.ctype.press("f")
-        self.validator.wait_open(self.configs["validation"]["inventory"], key="f")
+        if not self.validator.wait_open(self.configs["validation"]["inventory"], key="f"): return
         sleep(0.1)
         self.ctype.move_mouse_absolute(*self.configs["dino_inventory"]["search"])
         self.ctype.left_click()

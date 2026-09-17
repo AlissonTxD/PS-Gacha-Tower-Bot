@@ -1,5 +1,3 @@
-from time import sleep
-
 from .base_model import BaseModel
 
 
@@ -16,9 +14,11 @@ class TeleportModel(BaseModel):
         self.ctype.press("e")
         if self.stop_event.is_set():
             return
-        self.validator.wait_open(self.configs["validation"]["teleport"], key="e")
-        sleep(1)
-        if self.stop_event.is_set():
+        if not self.validator.wait_open(
+            self.configs["validation"]["teleport"], key="e"
+        ):
+            return
+        if not self.wait(1):
             return
         self.ctype.move_mouse_absolute(*self.configs["teleport"]["search_map"])
         if self.stop_event.is_set():
@@ -27,8 +27,7 @@ class TeleportModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.ctype.write_text(tp_name)
-        sleep(0.1)
-        if self.stop_event.is_set():
+        if not self.wait(0.1):
             return
         self.ctype.move_mouse_absolute(*self.configs["teleport"]["first_on_list"])
         if self.stop_event.is_set():
@@ -40,9 +39,6 @@ class TeleportModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.ctype.left_click()
-        sleep(2)
-        if self.stop_event.is_set():
+        if not self.wait(0.1):
             return
         self.gt.move_mouse_grau(0, 80, self.pixel_per_degree)
-        if self.stop_event.is_set():
-            return
