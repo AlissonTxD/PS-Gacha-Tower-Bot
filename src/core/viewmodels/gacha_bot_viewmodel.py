@@ -119,7 +119,7 @@ class GachaBotViewModel:
         self.qtd_pego = self.general_config["quantities"]["pego_boxes"]
         self.qtd_trap = self.general_config["quantities"]["trap_boxes"]
         self.render_station = RenderStationModel(self.general_config)
-        self.teleporter = TeleportModel(self.general_config)
+        self.teleporter = TeleportModel(self.general_config, self.stop_event)
         self.pego = PegoModel(self.general_config)
         self.cracker = CrystalCrackerModel(self.general_config)
         self.gacha = GachaModel(self.general_config)
