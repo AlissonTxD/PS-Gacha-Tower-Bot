@@ -109,8 +109,10 @@ class GachaBotViewModel:
             return
         self.render_station.leave_bed()
 
-    def stop_bot(self) -> None:
+    def stop_bot(self):
+        print(">>> F10: solicitando STOP")
         self.stop_event.set()
+        print(">>> F10: STOP enviado")
 
     def load_config(self):
         self.config = ConfigController()
