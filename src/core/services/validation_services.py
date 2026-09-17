@@ -38,7 +38,6 @@ class ValidationServices:
                     pixel = img.pixel(0, 0)
 
                     if self.__nearby_colors(pixel, aim_color, tolerance):
-                        logging.info("Pixel detectado. Inventário aberto.")  # noqa: LOG015
                         return True
 
                     # Espera cancelável

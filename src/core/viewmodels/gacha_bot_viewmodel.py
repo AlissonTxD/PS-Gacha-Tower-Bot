@@ -10,6 +10,7 @@ from src.core.models.pego_model import PegoModel
 from src.core.models.render_station_model import RenderStationModel
 from src.core.models.teleport_model import TeleportModel
 from src.core.models.trap_model import TrapModel
+from src.core.services.calibration_services import CalibrationServices
 
 
 class GachaBotViewModel:
@@ -116,6 +117,7 @@ class GachaBotViewModel:
 
     def load_config(self):
         self.config = ConfigController()
+        self.tools = CalibrationServices()
         self.general_config = self.config.load_config()
         self.qtd_gacha = self.general_config["quantities"]["gacha_boxes"]
         self.qtd_pego = self.general_config["quantities"]["pego_boxes"]

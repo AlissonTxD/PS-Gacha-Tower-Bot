@@ -1,7 +1,7 @@
 {
     "quantities": {
         "gacha_boxes": 3,
-        "pego_boxes": 1,
+        "pego_boxes": 3,
         "trap_boxes": 3
     },
     "calibration": {

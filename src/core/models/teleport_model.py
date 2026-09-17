@@ -18,7 +18,7 @@ class TeleportModel(BaseModel):
             self.configs["validation"]["teleport"], key="e"
         ):
             return
-        self.log("teleport HUB open Successful")
+        self.log("teleport HUB open successful")
         if not self.wait(1):
             return
         self.ctype.move_mouse_absolute(*self.configs["teleport"]["search_map"])
@@ -43,4 +43,4 @@ class TeleportModel(BaseModel):
         if not self.wait(1):
             return
         self.gt.move_mouse_grau(0, 80, self.pixel_per_degree)
-        self.log(f"teleport to {tp_name} complete")
+        self.log(f"Teleport to {tp_name} complete")
