@@ -184,7 +184,7 @@ font: 87 20pt &quot;Arial Black&quot;;</string>
                <number>0</number>
               </property>
               <item row="1" column="2">
-               <widget class="QLineEdit" name="amount_pego">
+               <widget class="QLineEdit" name="lineEdit_amount_pego">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -209,7 +209,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="0" column="2">
-               <widget class="QLineEdit" name="amount_gacha">
+               <widget class="QLineEdit" name="lineEdit_amount_gacha">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -289,7 +289,7 @@ font: 87 14pt &quot;Arial Black&quot;;color: rgb(255, 137, 1);
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QLineEdit" name="amount_trap">
+               <widget class="QLineEdit" name="lineEdit_amount_trap">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -412,7 +412,7 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
                <number>0</number>
               </property>
               <item>
-               <widget class="QCheckBox" name="checkBox">
+               <widget class="QCheckBox" name="CheckBox_test">
                 <property name="maximumSize">
                  <size>
                   <width>161</width>
@@ -486,7 +486,7 @@ QCheckBox:checked {
                <number>0</number>
               </property>
               <item row="0" column="0">
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="btn_start">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -533,7 +533,7 @@ color: #666666; /* Texto cinza escuro */
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QPushButton" name="pushButton_2">
+               <widget class="QPushButton" name="btn_stop">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -796,7 +796,7 @@ font: 87 15pt &quot;Arial Black&quot;;</string>
                <number>5</number>
               </property>
               <item row="0" column="2">
-               <widget class="QLineEdit" name="lineEdit_4">
+               <widget class="QLineEdit" name="lineEdit_yaw">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -821,7 +821,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="0" column="5">
-               <widget class="QLineEdit" name="lineEdit_5">
+               <widget class="QLineEdit" name="lineEdit_pix_per_dregree">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -975,7 +975,7 @@ font: 87 15pt &quot;Arial Black&quot;;</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
               <item row="4" column="5">
-               <widget class="QLineEdit" name="lineEdit_22">
+               <widget class="QLineEdit" name="lineEdit_dino_first_slot">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1009,7 +1009,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="5" column="2">
-               <widget class="QLineEdit" name="lineEdit_12">
+               <widget class="QLineEdit" name="lineEdit_inventory_transferall">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1043,7 +1043,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="1" column="5">
-               <widget class="QLineEdit" name="lineEdit_18">
+               <widget class="QLineEdit" name="lineEdit_dino_search">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1077,7 +1077,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QLineEdit" name="lineEdit_8">
+               <widget class="QLineEdit" name="lineEdit_teleport_first_on_list">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1133,7 +1133,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="5" column="5">
-               <widget class="QLineEdit" name="lineEdit_23">
+               <widget class="QLineEdit" name="lineEdit_tekbed_lay">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1235,7 +1235,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="3" column="2">
-               <widget class="QLineEdit" name="lineEdit_10">
+               <widget class="QLineEdit" name="lineEdit_teleport_btn">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1280,7 +1280,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="4" column="2">
-               <widget class="QLineEdit" name="lineEdit_11">
+               <widget class="QLineEdit" name="lineEdit_inventory_search">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1314,7 +1314,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="3" column="5">
-               <widget class="QLineEdit" name="lineEdit_21">
+               <widget class="QLineEdit" name="lineEdit_dino_dropall">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1405,7 +1405,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="6" column="5">
-               <widget class="QLineEdit" name="lineEdit_24">
+               <widget class="QLineEdit" name="lineEdit_btn_grindall">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1461,7 +1461,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="2" column="5">
-               <widget class="QLineEdit" name="lineEdit_20">
+               <widget class="QLineEdit" name="lineEdit_dino_transferall">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1495,7 +1495,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QLineEdit" name="lineEdit_6">
+               <widget class="QLineEdit" name="lineEdit_teleport_search">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1529,7 +1529,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="6" column="2">
-               <widget class="QLineEdit" name="lineEdit_13">
+               <widget class="QLineEdit" name="lineEdit_inventory_dropall">
                 <property name="maximumSize">
                  <size>
                   <width>181</width>
@@ -1649,7 +1649,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QLineEdit" name="lineEdit_9">
+               <widget class="QLineEdit" name="lineEdit_v_teleport_coord">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1674,7 +1674,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="3" column="2">
-               <widget class="QLineEdit" name="lineEdit_14">
+               <widget class="QLineEdit" name="lineEdit_v_tekbed_coord">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1721,7 +1721,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="1" column="3">
-               <widget class="QLineEdit" name="lineEdit_15">
+               <widget class="QLineEdit" name="lineEdit_v_inventory_color">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1746,7 +1746,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="2" column="3">
-               <widget class="QLineEdit" name="lineEdit_16">
+               <widget class="QLineEdit" name="lineEdit_v_teleport_color">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1784,7 +1784,7 @@ color: rgb(255, 255, 255)
                </spacer>
               </item>
               <item row="4" column="2">
-               <widget class="QLineEdit" name="lineEdit_17">
+               <widget class="QLineEdit" name="lineEdit_v_vault_coord">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1842,7 +1842,7 @@ font: 87 12pt &quot;Arial Black&quot;;</string>
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QLineEdit" name="lineEdit_7">
+               <widget class="QLineEdit" name="lineEdit_v_inventory_coord">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1867,7 +1867,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="4" column="3">
-               <widget class="QLineEdit" name="lineEdit_25">
+               <widget class="QLineEdit" name="lineEdit_v_vault_color">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1892,7 +1892,7 @@ color: rgb(255, 255, 255)
                </widget>
               </item>
               <item row="3" column="3">
-               <widget class="QLineEdit" name="lineEdit_19">
+               <widget class="QLineEdit" name="lineEdit_v_tekbed_color">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
 border: 0px solid rgb(45, 45, 45);
@@ -1960,7 +1960,7 @@ color: rgb(255, 255, 255)
                <number>0</number>
               </property>
               <item>
-               <widget class="QPushButton" name="pushButton_3">
+               <widget class="QPushButton" name="btn_save">
                 <property name="maximumSize">
                  <size>
                   <width>390</width>
@@ -2075,14 +2075,14 @@ color: #666666; /* Texto cinza escuro */
   </widget>
  </widget>
  <tabstops>
-  <tabstop>amount_gacha</tabstop>
-  <tabstop>amount_pego</tabstop>
-  <tabstop>amount_trap</tabstop>
-  <tabstop>checkBox</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>lineEdit_4</tabstop>
-  <tabstop>lineEdit_5</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>lineEdit_amount_gacha</tabstop>
+  <tabstop>lineEdit_amount_pego</tabstop>
+  <tabstop>lineEdit_amount_trap</tabstop>
+  <tabstop>CheckBox_test</tabstop>
+  <tabstop>btn_start</tabstop>
+  <tabstop>lineEdit_yaw</tabstop>
+  <tabstop>lineEdit_pix_per_dregree</tabstop>
+  <tabstop>btn_stop</tabstop>
  </tabstops>
  <resources/>
  <connections/>

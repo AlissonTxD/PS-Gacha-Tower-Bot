@@ -1,8 +1,7 @@
 {
-    "version": 1,
     "quantities": {
-        "gacha_boxes": 3,
-        "pego_boxes": 2,
+        "gacha_boxes": 40,
+        "pego_boxes": 12,
         "trap_boxes": 3
     },
     "calibration": {

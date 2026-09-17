@@ -98,8 +98,8 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setHorizontalSpacing(10)
         self.gridLayout_3.setVerticalSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.amount_pego = QtWidgets.QLineEdit(self.blue_frame)
-        self.amount_pego.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_amount_pego = QtWidgets.QLineEdit(self.blue_frame)
+        self.lineEdit_amount_pego.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 15px;\n"
@@ -118,10 +118,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.amount_pego.setObjectName("amount_pego")
-        self.gridLayout_3.addWidget(self.amount_pego, 1, 2, 1, 1)
-        self.amount_gacha = QtWidgets.QLineEdit(self.blue_frame)
-        self.amount_gacha.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_amount_pego.setObjectName("lineEdit_amount_pego")
+        self.gridLayout_3.addWidget(self.lineEdit_amount_pego, 1, 2, 1, 1)
+        self.lineEdit_amount_gacha = QtWidgets.QLineEdit(self.blue_frame)
+        self.lineEdit_amount_gacha.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 15px;\n"
@@ -140,8 +140,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.amount_gacha.setObjectName("amount_gacha")
-        self.gridLayout_3.addWidget(self.amount_gacha, 0, 2, 1, 1)
+        self.lineEdit_amount_gacha.setObjectName("lineEdit_amount_gacha")
+        self.gridLayout_3.addWidget(self.lineEdit_amount_gacha, 0, 2, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_3.addItem(spacerItem, 0, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.blue_frame)
@@ -162,8 +162,8 @@ class Ui_MainWindow(object):
 "")
         self.label_10.setObjectName("label_10")
         self.gridLayout_3.addWidget(self.label_10, 1, 1, 1, 1)
-        self.amount_trap = QtWidgets.QLineEdit(self.blue_frame)
-        self.amount_trap.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_amount_trap = QtWidgets.QLineEdit(self.blue_frame)
+        self.lineEdit_amount_trap.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 15px;\n"
@@ -182,9 +182,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.amount_trap.setFrame(True)
-        self.amount_trap.setObjectName("amount_trap")
-        self.gridLayout_3.addWidget(self.amount_trap, 2, 2, 1, 1)
+        self.lineEdit_amount_trap.setFrame(True)
+        self.lineEdit_amount_trap.setObjectName("lineEdit_amount_trap")
+        self.gridLayout_3.addWidget(self.lineEdit_amount_trap, 2, 2, 1, 1)
         self.label_8 = QtWidgets.QLabel(self.blue_frame)
         self.label_8.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.label_8.setText("")
@@ -218,10 +218,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.yellow_frame)
         self.horizontalLayout_2.setContentsMargins(-1, 0, -1, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.checkBox = QtWidgets.QCheckBox(self.yellow_frame)
-        self.checkBox.setMaximumSize(QtCore.QSize(161, 16777215))
-        self.checkBox.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.checkBox.setStyleSheet("QCheckBox {\n"
+        self.CheckBox_test = QtWidgets.QCheckBox(self.yellow_frame)
+        self.CheckBox_test.setMaximumSize(QtCore.QSize(161, 16777215))
+        self.CheckBox_test.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.CheckBox_test.setStyleSheet("QCheckBox {\n"
 "    color: rgb(120, 120, 120);\n"
 "    font-size: 16px;\n"
 "    font-family: \"Arial\";\n"
@@ -253,8 +253,8 @@ class Ui_MainWindow(object):
 "QCheckBox:checked {\n"
 "    color: rgb(255, 255, 255);\n"
 "}")
-        self.checkBox.setObjectName("checkBox")
-        self.horizontalLayout_2.addWidget(self.checkBox)
+        self.CheckBox_test.setObjectName("CheckBox_test")
+        self.horizontalLayout_2.addWidget(self.CheckBox_test)
         self.verticalLayout_2.addWidget(self.yellow_frame)
         self.green_frame = QtWidgets.QFrame(self.inicializador)
         self.green_frame.setStyleSheet("/*background-color: rgb(0, 255, 29);")
@@ -264,10 +264,10 @@ class Ui_MainWindow(object):
         self.gridLayout_4 = QtWidgets.QGridLayout(self.green_frame)
         self.gridLayout_4.setContentsMargins(9, 0, -1, 0)
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.pushButton = QtWidgets.QPushButton(self.green_frame)
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 72))
-        self.pushButton.setMaximumSize(QtCore.QSize(370, 16777215))
-        self.pushButton.setStyleSheet("QPushButton{\n"
+        self.btn_start = QtWidgets.QPushButton(self.green_frame)
+        self.btn_start.setMinimumSize(QtCore.QSize(0, 72))
+        self.btn_start.setMaximumSize(QtCore.QSize(370, 16777215))
+        self.btn_start.setStyleSheet("QPushButton{\n"
 "background-color: rgb(255, 137, 1);\n"
 "border: 3px outset rgb(93, 49, 0);\n"
 "border-radius: 10px;\n"
@@ -293,12 +293,12 @@ class Ui_MainWindow(object):
 "color: #666666; /* Texto cinza escuro */\n"
 "}\n"
 "")
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout_4.addWidget(self.pushButton, 0, 0, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.green_frame)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 72))
-        self.pushButton_2.setMaximumSize(QtCore.QSize(370, 16777215))
-        self.pushButton_2.setStyleSheet("QPushButton{\n"
+        self.btn_start.setObjectName("btn_start")
+        self.gridLayout_4.addWidget(self.btn_start, 0, 0, 1, 1)
+        self.btn_stop = QtWidgets.QPushButton(self.green_frame)
+        self.btn_stop.setMinimumSize(QtCore.QSize(0, 72))
+        self.btn_stop.setMaximumSize(QtCore.QSize(370, 16777215))
+        self.btn_stop.setStyleSheet("QPushButton{\n"
 "background-color: rgb(255, 137, 1);\n"
 "border: 3px outset rgb(93, 49, 0);\n"
 "border-radius: 10px;\n"
@@ -324,8 +324,8 @@ class Ui_MainWindow(object):
 "color: #666666; /* Texto cinza escuro */\n"
 "}\n"
 "")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout_4.addWidget(self.pushButton_2, 0, 1, 1, 1)
+        self.btn_stop.setObjectName("btn_stop")
+        self.gridLayout_4.addWidget(self.btn_stop, 0, 1, 1, 1)
         self.verticalLayout_2.addWidget(self.green_frame)
         self.cyan_frame = QtWidgets.QFrame(self.inicializador)
         self.cyan_frame.setMaximumSize(QtCore.QSize(16777215, 50))
@@ -396,8 +396,8 @@ class Ui_MainWindow(object):
         self.gridLayout.setHorizontalSpacing(0)
         self.gridLayout.setVerticalSpacing(5)
         self.gridLayout.setObjectName("gridLayout")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.white_frame)
-        self.lineEdit_4.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_yaw = QtWidgets.QLineEdit(self.white_frame)
+        self.lineEdit_yaw.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 10px;\n"
@@ -416,10 +416,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.gridLayout.addWidget(self.lineEdit_4, 0, 2, 1, 1)
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.white_frame)
-        self.lineEdit_5.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_yaw.setObjectName("lineEdit_yaw")
+        self.gridLayout.addWidget(self.lineEdit_yaw, 0, 2, 1, 1)
+        self.lineEdit_pix_per_dregree = QtWidgets.QLineEdit(self.white_frame)
+        self.lineEdit_pix_per_dregree.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 10px;\n"
@@ -438,8 +438,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.gridLayout.addWidget(self.lineEdit_5, 0, 5, 1, 1)
+        self.lineEdit_pix_per_dregree.setObjectName("lineEdit_pix_per_dregree")
+        self.gridLayout.addWidget(self.lineEdit_pix_per_dregree, 0, 5, 1, 1)
         self.label_6 = QtWidgets.QLabel(self.white_frame)
         self.label_6.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -481,9 +481,9 @@ class Ui_MainWindow(object):
         self.cyan_frame_2.setObjectName("cyan_frame_2")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.cyan_frame_2)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.lineEdit_22 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_22.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_22.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_dino_first_slot = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_dino_first_slot.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_dino_first_slot.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -502,12 +502,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_22.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_22.setObjectName("lineEdit_22")
-        self.gridLayout_2.addWidget(self.lineEdit_22, 4, 5, 1, 1)
-        self.lineEdit_12 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_12.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_12.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_dino_first_slot.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_dino_first_slot.setObjectName("lineEdit_dino_first_slot")
+        self.gridLayout_2.addWidget(self.lineEdit_dino_first_slot, 4, 5, 1, 1)
+        self.lineEdit_inventory_transferall = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_inventory_transferall.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_inventory_transferall.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -526,12 +526,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_12.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_12.setObjectName("lineEdit_12")
-        self.gridLayout_2.addWidget(self.lineEdit_12, 5, 2, 1, 1)
-        self.lineEdit_18 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_18.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_18.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_inventory_transferall.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_inventory_transferall.setObjectName("lineEdit_inventory_transferall")
+        self.gridLayout_2.addWidget(self.lineEdit_inventory_transferall, 5, 2, 1, 1)
+        self.lineEdit_dino_search = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_dino_search.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_dino_search.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -550,12 +550,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_18.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_18.setObjectName("lineEdit_18")
-        self.gridLayout_2.addWidget(self.lineEdit_18, 1, 5, 1, 1)
-        self.lineEdit_8 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_8.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_8.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_dino_search.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_dino_search.setObjectName("lineEdit_dino_search")
+        self.gridLayout_2.addWidget(self.lineEdit_dino_search, 1, 5, 1, 1)
+        self.lineEdit_teleport_first_on_list = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_teleport_first_on_list.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_teleport_first_on_list.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -574,9 +574,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_8.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_8.setObjectName("lineEdit_8")
-        self.gridLayout_2.addWidget(self.lineEdit_8, 2, 2, 1, 1)
+        self.lineEdit_teleport_first_on_list.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_teleport_first_on_list.setObjectName("lineEdit_teleport_first_on_list")
+        self.gridLayout_2.addWidget(self.lineEdit_teleport_first_on_list, 2, 2, 1, 1)
         self.label_16 = QtWidgets.QLabel(self.cyan_frame_2)
         self.label_16.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -587,9 +587,9 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_28.setObjectName("label_28")
         self.gridLayout_2.addWidget(self.label_28, 1, 4, 1, 1)
-        self.lineEdit_23 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_23.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_23.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_tekbed_lay = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_tekbed_lay.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_tekbed_lay.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -608,9 +608,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_23.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_23.setObjectName("lineEdit_23")
-        self.gridLayout_2.addWidget(self.lineEdit_23, 5, 5, 1, 1)
+        self.lineEdit_tekbed_lay.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_tekbed_lay.setObjectName("lineEdit_tekbed_lay")
+        self.gridLayout_2.addWidget(self.lineEdit_tekbed_lay, 5, 5, 1, 1)
         self.label_30 = QtWidgets.QLabel(self.cyan_frame_2)
         self.label_30.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -638,9 +638,9 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_31.setObjectName("label_31")
         self.gridLayout_2.addWidget(self.label_31, 4, 4, 1, 1)
-        self.lineEdit_10 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_10.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_10.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_teleport_btn = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_teleport_btn.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_teleport_btn.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -659,17 +659,17 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_10.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_10.setObjectName("lineEdit_10")
-        self.gridLayout_2.addWidget(self.lineEdit_10, 3, 2, 1, 1)
+        self.lineEdit_teleport_btn.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_teleport_btn.setObjectName("lineEdit_teleport_btn")
+        self.gridLayout_2.addWidget(self.lineEdit_teleport_btn, 3, 2, 1, 1)
         self.label_29 = QtWidgets.QLabel(self.cyan_frame_2)
         self.label_29.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
         self.label_29.setObjectName("label_29")
         self.gridLayout_2.addWidget(self.label_29, 2, 4, 1, 1)
-        self.lineEdit_11 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_11.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_11.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_inventory_search = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_inventory_search.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_inventory_search.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -688,12 +688,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_11.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_11.setObjectName("lineEdit_11")
-        self.gridLayout_2.addWidget(self.lineEdit_11, 4, 2, 1, 1)
-        self.lineEdit_21 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_21.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_21.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_inventory_search.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_inventory_search.setObjectName("lineEdit_inventory_search")
+        self.gridLayout_2.addWidget(self.lineEdit_inventory_search, 4, 2, 1, 1)
+        self.lineEdit_dino_dropall = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_dino_dropall.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_dino_dropall.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -712,9 +712,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_21.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_21.setObjectName("lineEdit_21")
-        self.gridLayout_2.addWidget(self.lineEdit_21, 3, 5, 1, 1)
+        self.lineEdit_dino_dropall.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_dino_dropall.setObjectName("lineEdit_dino_dropall")
+        self.gridLayout_2.addWidget(self.lineEdit_dino_dropall, 3, 5, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.cyan_frame_2)
         self.label_19.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -737,9 +737,9 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_21.setObjectName("label_21")
         self.gridLayout_2.addWidget(self.label_21, 6, 1, 1, 1)
-        self.lineEdit_24 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_24.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_24.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_btn_grindall = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_btn_grindall.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_btn_grindall.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -758,9 +758,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_24.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_24.setObjectName("lineEdit_24")
-        self.gridLayout_2.addWidget(self.lineEdit_24, 6, 5, 1, 1)
+        self.lineEdit_btn_grindall.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_btn_grindall.setObjectName("lineEdit_btn_grindall")
+        self.gridLayout_2.addWidget(self.lineEdit_btn_grindall, 6, 5, 1, 1)
         self.label_33 = QtWidgets.QLabel(self.cyan_frame_2)
         self.label_33.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -771,9 +771,9 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_13.setObjectName("label_13")
         self.gridLayout_2.addWidget(self.label_13, 2, 1, 1, 1)
-        self.lineEdit_20 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_20.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_20.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_dino_transferall = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_dino_transferall.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_dino_transferall.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -792,12 +792,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_20.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_20.setObjectName("lineEdit_20")
-        self.gridLayout_2.addWidget(self.lineEdit_20, 2, 5, 1, 1)
-        self.lineEdit_6 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_6.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_6.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_dino_transferall.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_dino_transferall.setObjectName("lineEdit_dino_transferall")
+        self.gridLayout_2.addWidget(self.lineEdit_dino_transferall, 2, 5, 1, 1)
+        self.lineEdit_teleport_search = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_teleport_search.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_teleport_search.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -816,12 +816,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_6.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_6.setObjectName("lineEdit_6")
-        self.gridLayout_2.addWidget(self.lineEdit_6, 1, 2, 1, 1)
-        self.lineEdit_13 = QtWidgets.QLineEdit(self.cyan_frame_2)
-        self.lineEdit_13.setMaximumSize(QtCore.QSize(181, 16777215))
-        self.lineEdit_13.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_teleport_search.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_teleport_search.setObjectName("lineEdit_teleport_search")
+        self.gridLayout_2.addWidget(self.lineEdit_teleport_search, 1, 2, 1, 1)
+        self.lineEdit_inventory_dropall = QtWidgets.QLineEdit(self.cyan_frame_2)
+        self.lineEdit_inventory_dropall.setMaximumSize(QtCore.QSize(181, 16777215))
+        self.lineEdit_inventory_dropall.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -840,9 +840,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_13.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_13.setObjectName("lineEdit_13")
-        self.gridLayout_2.addWidget(self.lineEdit_13, 6, 2, 1, 1)
+        self.lineEdit_inventory_dropall.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_inventory_dropall.setObjectName("lineEdit_inventory_dropall")
+        self.gridLayout_2.addWidget(self.lineEdit_inventory_dropall, 6, 2, 1, 1)
         spacerItem7 = QtWidgets.QSpacerItem(95, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem7, 1, 3, 1, 1)
         self.verticalLayout_6.addWidget(self.cyan_frame_2)
@@ -874,8 +874,8 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_27.setObjectName("label_27")
         self.gridLayout_5.addWidget(self.label_27, 3, 1, 1, 1)
-        self.lineEdit_9 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_9.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_teleport_coord = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_teleport_coord.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -894,10 +894,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_9.setObjectName("lineEdit_9")
-        self.gridLayout_5.addWidget(self.lineEdit_9, 2, 2, 1, 1)
-        self.lineEdit_14 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_14.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_teleport_coord.setObjectName("lineEdit_v_teleport_coord")
+        self.gridLayout_5.addWidget(self.lineEdit_v_teleport_coord, 2, 2, 1, 1)
+        self.lineEdit_v_tekbed_coord = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_tekbed_coord.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -916,8 +916,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_14.setObjectName("lineEdit_14")
-        self.gridLayout_5.addWidget(self.lineEdit_14, 3, 2, 1, 1)
+        self.lineEdit_v_tekbed_coord.setObjectName("lineEdit_v_tekbed_coord")
+        self.gridLayout_5.addWidget(self.lineEdit_v_tekbed_coord, 3, 2, 1, 1)
         self.label_17 = QtWidgets.QLabel(self.yellow_frame_2)
         self.label_17.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -928,8 +928,8 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_34.setObjectName("label_34")
         self.gridLayout_5.addWidget(self.label_34, 4, 1, 1, 1)
-        self.lineEdit_15 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_15.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_inventory_color = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_inventory_color.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -948,10 +948,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_15.setObjectName("lineEdit_15")
-        self.gridLayout_5.addWidget(self.lineEdit_15, 1, 3, 1, 1)
-        self.lineEdit_16 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_16.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_inventory_color.setObjectName("lineEdit_v_inventory_color")
+        self.gridLayout_5.addWidget(self.lineEdit_v_inventory_color, 1, 3, 1, 1)
+        self.lineEdit_v_teleport_color = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_teleport_color.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -970,12 +970,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_16.setObjectName("lineEdit_16")
-        self.gridLayout_5.addWidget(self.lineEdit_16, 2, 3, 1, 1)
+        self.lineEdit_v_teleport_color.setObjectName("lineEdit_v_teleport_color")
+        self.gridLayout_5.addWidget(self.lineEdit_v_teleport_color, 2, 3, 1, 1)
         spacerItem8 = QtWidgets.QSpacerItem(245, 0, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_5.addItem(spacerItem8, 1, 4, 1, 1)
-        self.lineEdit_17 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_17.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_vault_coord = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_vault_coord.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -994,8 +994,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_17.setObjectName("lineEdit_17")
-        self.gridLayout_5.addWidget(self.lineEdit_17, 4, 2, 1, 1)
+        self.lineEdit_v_vault_coord.setObjectName("lineEdit_v_vault_coord")
+        self.gridLayout_5.addWidget(self.lineEdit_v_vault_coord, 4, 2, 1, 1)
         self.label_25 = QtWidgets.QLabel(self.yellow_frame_2)
         self.label_25.setStyleSheet("color: rgb(255, 137, 1);\n"
 "font: 87 12pt \"Arial Black\";")
@@ -1011,8 +1011,8 @@ class Ui_MainWindow(object):
 "font: 87 12pt \"Arial Black\";")
         self.label_23.setObjectName("label_23")
         self.gridLayout_5.addWidget(self.label_23, 0, 3, 1, 1)
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_7.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_inventory_coord = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_inventory_coord.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -1031,10 +1031,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_7.setObjectName("lineEdit_7")
-        self.gridLayout_5.addWidget(self.lineEdit_7, 1, 2, 1, 1)
-        self.lineEdit_25 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_25.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_inventory_coord.setObjectName("lineEdit_v_inventory_coord")
+        self.gridLayout_5.addWidget(self.lineEdit_v_inventory_coord, 1, 2, 1, 1)
+        self.lineEdit_v_vault_color = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_vault_color.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -1053,10 +1053,10 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_25.setObjectName("lineEdit_25")
-        self.gridLayout_5.addWidget(self.lineEdit_25, 4, 3, 1, 1)
-        self.lineEdit_19 = QtWidgets.QLineEdit(self.yellow_frame_2)
-        self.lineEdit_19.setStyleSheet("QLineEdit {\n"
+        self.lineEdit_v_vault_color.setObjectName("lineEdit_v_vault_color")
+        self.gridLayout_5.addWidget(self.lineEdit_v_vault_color, 4, 3, 1, 1)
+        self.lineEdit_v_tekbed_color = QtWidgets.QLineEdit(self.yellow_frame_2)
+        self.lineEdit_v_tekbed_color.setStyleSheet("QLineEdit {\n"
 "border: 0px solid rgb(45, 45, 45);\n"
 "border-radius: 10px;\n"
 "padding: 8px;\n"
@@ -1075,8 +1075,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.lineEdit_19.setObjectName("lineEdit_19")
-        self.gridLayout_5.addWidget(self.lineEdit_19, 3, 3, 1, 1)
+        self.lineEdit_v_tekbed_color.setObjectName("lineEdit_v_tekbed_color")
+        self.gridLayout_5.addWidget(self.lineEdit_v_tekbed_color, 3, 3, 1, 1)
         spacerItem9 = QtWidgets.QSpacerItem(245, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_5.addItem(spacerItem9, 1, 0, 1, 1)
         self.verticalLayout_6.addWidget(self.yellow_frame_2)
@@ -1089,9 +1089,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_10.setSpacing(0)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
-        self.pushButton_3 = QtWidgets.QPushButton(self.dark_red_frame)
-        self.pushButton_3.setMaximumSize(QtCore.QSize(390, 16777215))
-        self.pushButton_3.setStyleSheet("QPushButton{\n"
+        self.btn_save = QtWidgets.QPushButton(self.dark_red_frame)
+        self.btn_save.setMaximumSize(QtCore.QSize(390, 16777215))
+        self.btn_save.setStyleSheet("QPushButton{\n"
 "background-color: rgb(255, 137, 1);\n"
 "border: 3px outset rgb(93, 49, 0);\n"
 "border-radius: 10px;\n"
@@ -1117,8 +1117,8 @@ class Ui_MainWindow(object):
 "color: #666666; /* Texto cinza escuro */\n"
 "}\n"
 "")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_10.addWidget(self.pushButton_3)
+        self.btn_save.setObjectName("btn_save")
+        self.horizontalLayout_10.addWidget(self.btn_save)
         self.verticalLayout_6.addWidget(self.dark_red_frame)
         self.pink_frame = QtWidgets.QFrame(self.config)
         self.pink_frame.setMaximumSize(QtCore.QSize(16777215, 50))
@@ -1147,13 +1147,13 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.maintab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        MainWindow.setTabOrder(self.amount_gacha, self.amount_pego)
-        MainWindow.setTabOrder(self.amount_pego, self.amount_trap)
-        MainWindow.setTabOrder(self.amount_trap, self.checkBox)
-        MainWindow.setTabOrder(self.checkBox, self.pushButton)
-        MainWindow.setTabOrder(self.pushButton, self.lineEdit_4)
-        MainWindow.setTabOrder(self.lineEdit_4, self.lineEdit_5)
-        MainWindow.setTabOrder(self.lineEdit_5, self.pushButton_2)
+        MainWindow.setTabOrder(self.lineEdit_amount_gacha, self.lineEdit_amount_pego)
+        MainWindow.setTabOrder(self.lineEdit_amount_pego, self.lineEdit_amount_trap)
+        MainWindow.setTabOrder(self.lineEdit_amount_trap, self.CheckBox_test)
+        MainWindow.setTabOrder(self.CheckBox_test, self.btn_start)
+        MainWindow.setTabOrder(self.btn_start, self.lineEdit_yaw)
+        MainWindow.setTabOrder(self.lineEdit_yaw, self.lineEdit_pix_per_dregree)
+        MainWindow.setTabOrder(self.lineEdit_pix_per_dregree, self.btn_stop)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -1162,9 +1162,9 @@ class Ui_MainWindow(object):
         self.label_14.setText(_translate("MainWindow", "Quantidade de casais de gacha:"))
         self.label_10.setText(_translate("MainWindow", "Quantidade de casas de pegomastax"))
         self.label_9.setText(_translate("MainWindow", "Quantidade de trap farmers"))
-        self.checkBox.setText(_translate("MainWindow", "Test Gacha Mode"))
-        self.pushButton.setText(_translate("MainWindow", "Iniciar"))
-        self.pushButton_2.setText(_translate("MainWindow", "Parar (F10)"))
+        self.CheckBox_test.setText(_translate("MainWindow", "Test Gacha Mode"))
+        self.btn_start.setText(_translate("MainWindow", "Iniciar"))
+        self.btn_stop.setText(_translate("MainWindow", "Parar (F10)"))
         self.maintab.setTabText(self.maintab.indexOf(self.inicializador), _translate("MainWindow", "Gacha Tower Bot"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">ConfiguraçãoGacha Tower Bot</p></body></html>"))
         self.label_5.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Calibragem</p></body></html>"))
@@ -1192,5 +1192,5 @@ class Ui_MainWindow(object):
         self.label_25.setText(_translate("MainWindow", "Inventario"))
         self.label_26.setText(_translate("MainWindow", "Teleport"))
         self.label_23.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Color(R, G, B)</p></body></html>"))
-        self.pushButton_3.setText(_translate("MainWindow", "Salvar"))
+        self.btn_save.setText(_translate("MainWindow", "Salvar"))
         self.maintab.setTabText(self.maintab.indexOf(self.config), _translate("MainWindow", "Configuração"))
