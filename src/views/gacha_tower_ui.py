@@ -1079,6 +1079,66 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.lineEdit_v_tekbed_color, 3, 3, 1, 1)
         spacerItem9 = QtWidgets.QSpacerItem(245, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_5.addItem(spacerItem9, 1, 0, 1, 1)
+        self.btn_calibrator = QtWidgets.QPushButton(self.yellow_frame_2)
+        self.btn_calibrator.setMaximumSize(QtCore.QSize(135, 16777215))
+        self.btn_calibrator.setStyleSheet("QPushButton{\n"
+"background-color: rgb(255, 137, 1);\n"
+"border: 3px outset rgb(93, 49, 0);\n"
+"border-radius: 10px;\n"
+"color: rgb(15, 15, 15);\n"
+"    font: 87 10pt \"Arial Black\";\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:hover{\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(215, 97, 0);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: 3px inset rgb(93, 49, 0);\n"
+"color: rgb(15, 15, 15);\n"
+"background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"background-color: #cccccc; /* Cinza */\n"
+"border: 2px solid #999999;\n"
+"color: #666666; /* Texto cinza escuro */\n"
+"}\n"
+"")
+        self.btn_calibrator.setObjectName("btn_calibrator")
+        self.gridLayout_5.addWidget(self.btn_calibrator, 4, 0, 1, 1)
+        self.btn_coords = QtWidgets.QPushButton(self.yellow_frame_2)
+        self.btn_coords.setMaximumSize(QtCore.QSize(135, 16777215))
+        self.btn_coords.setStyleSheet("QPushButton{\n"
+"background-color: rgb(255, 137, 1);\n"
+"border: 3px outset rgb(93, 49, 0);\n"
+"border-radius: 10px;\n"
+"color: rgb(15, 15, 15);\n"
+"    font: 87 10pt \"Arial Black\";\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:hover{\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(215, 97, 0);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: 3px inset rgb(93, 49, 0);\n"
+"color: rgb(15, 15, 15);\n"
+"background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"background-color: #cccccc; /* Cinza */\n"
+"border: 2px solid #999999;\n"
+"color: #666666; /* Texto cinza escuro */\n"
+"}\n"
+"")
+        self.btn_coords.setObjectName("btn_coords")
+        self.gridLayout_5.addWidget(self.btn_coords, 3, 0, 1, 1)
         self.verticalLayout_6.addWidget(self.yellow_frame_2)
         self.dark_red_frame = QtWidgets.QFrame(self.config)
         self.dark_red_frame.setStyleSheet("/*background-color: rgb(136, 0, 0);")
@@ -1192,5 +1252,7 @@ class Ui_MainWindow(object):
         self.label_25.setText(_translate("MainWindow", "Inventario"))
         self.label_26.setText(_translate("MainWindow", "Teleport"))
         self.label_23.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Color(R, G, B)</p></body></html>"))
+        self.btn_calibrator.setText(_translate("MainWindow", "Calibrador"))
+        self.btn_coords.setText(_translate("MainWindow", "Coordenadas"))
         self.btn_save.setText(_translate("MainWindow", "Salvar"))
         self.maintab.setTabText(self.maintab.indexOf(self.config), _translate("MainWindow", "Configuração"))

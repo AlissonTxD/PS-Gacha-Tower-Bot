@@ -30,6 +30,8 @@ class GachaTower(QMainWindow):
         self.ui.btn_start.clicked.connect(self.start_bot)
         self.ui.btn_stop.clicked.connect(self.stop_bot)
         self.ui.btn_save.clicked.connect(self.save_config)
+        self.ui.btn_calibrator.clicked.connect(self.__open_calibration_window)
+        self.ui.btn_coords.clicked.connect(self.__open_color_coordinate_capture_window)
 
     def start_bot(self):
 
@@ -295,6 +297,12 @@ class GachaTower(QMainWindow):
             float(value.strip()) if "." in value else int(value.strip())
             for value in text.split(",")
         ]
+
+    def __open_calibration_window(self):
+        self.gachavm.tools.open_calibrator()
+
+    def __open_color_coordinate_capture_window(self):
+        self.gachavm.tools.open_color_coordinate_capture()
 
     def __check_f10(self):
 

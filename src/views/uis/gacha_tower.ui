@@ -1929,6 +1929,88 @@ color: rgb(255, 255, 255)
                 </property>
                </spacer>
               </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="btn_calibrator">
+                <property name="maximumSize">
+                 <size>
+                  <width>135</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+	font: 87 10pt &quot;Arial Black&quot;;
+}
+
+
+QPushButton:hover{
+color: rgb(255, 255, 255);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 255, 255);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Calibrador</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="btn_coords">
+                <property name="maximumSize">
+                 <size>
+                  <width>135</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+	font: 87 10pt &quot;Arial Black&quot;;
+}
+
+
+QPushButton:hover{
+color: rgb(255, 255, 255);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 255, 255);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Coordenadas</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
