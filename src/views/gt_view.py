@@ -1,6 +1,7 @@
+import ctypes
 import logging
 
-from PyQt5.QtCore import QThread
+from PyQt5.QtCore import QThread, QTimer
 from PyQt5.QtWidgets import QMainWindow
 
 from src.core.viewmodels.gacha_bot_viewmodel import GachaBotViewModel
@@ -11,6 +12,10 @@ from src.views.gacha_tower_ui import Ui_MainWindow
 class GachaTower(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.f10_pressed = False
+        self.f10_timer = QTimer()
+        self.f10_timer.timeout.connect(self.__check_f10)
+        self.f10_timer.start(50)
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -286,3 +291,18 @@ class GachaTower(QMainWindow):
             float(value.strip()) if "." in value else int(value.strip())
             for value in text.split(",")
         ]
+
+    def __check_f10(self):
+
+        f10_down = bool(
+            ctypes.windll.user32.GetAsyncKeyState(0x79) & 0x8000
+        )
+
+        if f10_down and not self.f10_pressed:
+            self.f10_pressed = True
+
+            if self.worker:
+                self.gachavm.stop_bot()
+
+        elif not f10_down:
+            self.f10_pressed = False
