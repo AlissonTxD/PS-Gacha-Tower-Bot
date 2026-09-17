@@ -1,7 +1,9 @@
 import ctypes
 import logging
+from pathlib import Path
 
 from PyQt5.QtCore import QThread, QTimer
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QMainWindow
 
 from src.core.viewmodels.gacha_bot_viewmodel import GachaBotViewModel
@@ -19,6 +21,8 @@ class GachaTower(QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.load_img_on_exe()
+
         self.gachavm = GachaBotViewModel()
 
         self.thread = None
@@ -318,3 +322,30 @@ class GachaTower(QMainWindow):
 
         elif not f10_down:
             self.f10_pressed = False
+
+    def load_img_on_exe(self):
+        img_path = Path(__file__).resolve().parent / "uis"
+
+        self.ui.label_8.setPixmap(
+            QPixmap(str(img_path / "trap100.png"))
+        )
+
+        self.ui.label.setPixmap(
+            QPixmap(str(img_path / "gacha100.png"))
+        )
+
+        self.ui.fotologo.setPixmap(
+            QPixmap(str(img_path / "ps_png.png"))
+        )
+
+        self.ui.label_4.setPixmap(
+            QPixmap(str(img_path / "ps_png.png"))
+        )
+
+        self.ui.label_2.setPixmap(
+            QPixmap(str(img_path / "pego100.png"))
+        )
+
+        self.setWindowIcon(
+            QIcon(str(img_path / "ps_ico.ico"))
+    )
