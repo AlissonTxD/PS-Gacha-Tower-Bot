@@ -11,7 +11,7 @@ class RenderStationModel(BaseModel):
         self.ctype.press(key="e", hold=3)
         sleep(1)
         self.gt.centralize(*self.centralization_parameters)
-        self.ctype.scroll_mouse("up")
+        self.ctype.scroll_mouse("up", 3)
 
     def join_bed(self):
         self.gt.centralize(*self.centralization_parameters)
