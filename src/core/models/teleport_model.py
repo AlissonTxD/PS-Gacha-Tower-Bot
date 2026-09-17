@@ -39,6 +39,7 @@ class TeleportModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.ctype.left_click()
-        if not self.wait(0.1):
+        if not self.wait(1):
             return
         self.gt.move_mouse_grau(0, 80, self.pixel_per_degree)
+        print(f"teleport feito com suscesso: {tp_name}")
