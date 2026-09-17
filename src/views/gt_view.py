@@ -32,6 +32,9 @@ class GachaTower(QMainWindow):
         self.ui.btn_save.clicked.connect(self.save_config)
 
     def start_bot(self):
+
+        if self.thread is not None:
+            return
         self.save_config()
 
         self.ui.btn_start.setDisabled(True)
@@ -58,11 +61,12 @@ class GachaTower(QMainWindow):
         self.gachavm.stop_bot()
 
     def bot_finished(self):
+        logging.info(">>> BOT_FINISHED: entrou")  # noqa: LOG015
+
         self.ui.btn_start.setEnabled(True)
         self.ui.btn_stop.setDisabled(True)
 
-        self.thread = None
-        self.worker = None
+        logging.info(">>> BOT_FINISHED: terminou")  # noqa: LOG015
 
     def bot_error(self, error):
         logging.error(error)  # noqa: LOG015

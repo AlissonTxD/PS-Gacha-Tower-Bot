@@ -1,3 +1,5 @@
+from logging import info
+
 from src.core.services.ctypes_services import CtypesServices
 from src.core.services.gt_services import GtServices
 from src.core.services.validation_services import ValidationServices
@@ -23,3 +25,6 @@ class BaseModel:
 
     def wait(self, seconds):
         return not self.stop_event.wait(seconds)
+
+    def log(self, message: str) -> None:
+        info(message)  # noqa: LOG015

@@ -115,9 +115,7 @@ class GtServices:
                     if yaw is not None and pitch is not None:
                         return
                 except Exception as e:  # noqa: BLE001
-                    logging.warning(  # noqa: LOG015
-                        f"Erro ao obter valores do CCC na tentativa {tentativa}: {e}"
-                    )
+                    print(e)
                     continue
             logging.warning("Timeout ao esperar resposta do CCC.")  # noqa: LOG015
         raise TimeoutError("Falha ao obter resposta válida do CCC após 3 tentativas.")
