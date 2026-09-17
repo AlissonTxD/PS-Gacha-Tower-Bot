@@ -1,0 +1,2277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Prime Survivor 2 v1.0</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../midia/logo/ps_ico.ico</normaloff>../midia/logo/ps_ico.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(15, 15, 15);
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame_main">
+      <property name="maximumSize">
+       <size>
+        <width>1000</width>
+        <height>700</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTabWidget" name="maintab">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTabBar::tab {
+    border: 4px solid rgb(255, 137, 1);
+    padding: 15px;
+    color: rgb(255, 137, 1);
+	background-color: rgb(255, 0, 4);
+}
+
+QTabBar::tab:selected {
+    background-color:rgb(255, 137, 1);
+    color: black;
+}
+
+QTabBar::tab:hover {
+	color: white;
+    background-color: rgb(215, 97, 0);
+}
+
+
+QTabWidget::pane {
+    border: 2px solid rgb(255, 137, 1);
+}
+
+QTabWidget::tab-bar {
+alignment: center;
+}</string>
+         </property>
+         <property name="tabShape">
+          <enum>QTabWidget::Triangular</enum>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="controls">
+          <attribute name="title">
+           <string>Controles</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="aim_title_frame">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>28</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Mira</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="aim_frame">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>8</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>0</number>
+              </property>
+              <item row="2" column="6">
+               <widget class="QPushButton" name="btn_activate_aim">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Ativar Mira</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QComboBox" name="combobox_aim_style">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    border: 0px solid rgb(45, 45, 45);
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: rgb(24, 24, 24);
+    color: rgb(80, 80, 80);
+}
+
+QComboBox:hover {
+    border: 2px solid rgb(27, 27, 27);
+}
+
+QComboBox:focus {
+    border: 2px solid rgb(255, 137, 1);
+    color: rgb(255, 255, 255);
+}
+
+QComboBox QAbstractItemView {
+    border: none;
+    selection-background-color: rgb(255, 137, 1);
+    background-color: rgb(24, 24, 24);
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    outline: 0;
+}
+</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Bolinha</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cruz 1px</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cruz 2px</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_10">
+                <property name="maximumSize">
+                 <size>
+                  <width>117</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Tamanho : </string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="5">
+               <widget class="QLabel" name="label_aim_color">
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 0, 0);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="4">
+               <widget class="QPushButton" name="btn_select_color">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>222</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Selecionar  Cor</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QSpinBox" name="spinbox_aim_size">
+                <property name="maximumSize">
+                 <size>
+                  <width>82</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string/>
+                </property>
+                <property name="toolTipDuration">
+                 <number>-1</number>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QSpinBox {
+    border: 0px solid rgb(45, 45, 45);
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgb(24, 24, 24);
+    color: rgb(80, 80, 80);
+}
+
+QSpinBox:hover {
+    border: 2px solid rgb(27, 27, 27);
+}
+
+QSpinBox:focus {
+    border: 2px solid rgb(255, 137, 1);
+    color: rgb(255, 255, 255);
+}
+</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>20</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="label_8">
+                <property name="maximumSize">
+                 <size>
+                  <width>90</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Estilo :</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_7">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font-size: 28pt;
+font-family: &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Auto Click</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_8">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QRadioButton" name="radiobutton_left">
+                <property name="maximumSize">
+                 <size>
+                  <width>140</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QRadioButton {
+    color: rgb(255, 137, 1);
+    font: bold 14pt &quot;Arial Black&quot;;
+    spacing: 10px;
+}
+
+QRadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    border: 2px solid rgb(255, 137, 1);
+    background-color: rgb(24, 24, 24);
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 137, 1);
+    border: 2px solid rgb(255, 137, 1);
+}
+
+QRadioButton::indicator:hover {
+    background-color: rgb(215, 97, 0);
+    border: 2px solid rgb(255, 165, 50);
+}
+
+QRadioButton::indicator:disabled {
+    background-color: #555555;
+    border: 2px solid #999999;
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Esquerdo</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radiobutton_right">
+                <property name="maximumSize">
+                 <size>
+                  <width>140</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QRadioButton {
+    color: rgb(255, 137, 1);
+    font: bold 14pt &quot;Arial Black&quot;;
+    spacing: 10px;
+}
+
+QRadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    border: 2px solid rgb(255, 137, 1);
+    background-color: rgb(24, 24, 24);
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 137, 1);
+    border: 2px solid rgb(255, 137, 1);
+}
+
+QRadioButton::indicator:hover {
+    background-color: rgb(215, 97, 0);
+    border: 2px solid rgb(255, 165, 50);
+}
+
+QRadioButton::indicator:disabled {
+    background-color: #555555;
+    border: 2px solid #999999;
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Direito</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_15">
+                <property name="maximumSize">
+                 <size>
+                  <width>354</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font-size: 14pt;
+font-family: &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Intervalo de Click(ms) : </string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineedit_deley">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>IBeamCursor</cursorShape>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+font-size: 12pt;
+font-family: &quot;Arial Black&quot;;
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="text">
+                 <string>100</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QFrame" name="logo_frame">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="log">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../midia/logo/ps_png.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="log_bot">
+          <attribute name="title">
+           <string>Log Bot</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>396</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>72</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;LOG BOT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QCheckBox" name="checkbox_test_mode">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Modo Teste</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+                <property name="tristate">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>101</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="btn_start_log_bot">
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>16</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>INICIAR</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="btn_stop_log_bot">
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>16</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Parar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../midia/logo/ps_png.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="shortcuts">
+          <attribute name="title">
+           <string>Atalhos</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_4">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item row="2" column="3">
+               <widget class="QLineEdit" name="lineedit_input_toggleaim">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineedit_input_autowalk">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Para Tudo</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="lineedit_input_autoclick">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="label_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Auto Click</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineedit_input_stop">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="label_11">
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Ativar/Desativar Mira</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineedit_input_logbot">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLabel" name="label_13">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Dropar Tudo</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Ativar Log Bot</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_12">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+</string>
+                </property>
+                <property name="text">
+                 <string>Caminhar Automatico</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLineEdit" name="lineedit_input_dropall">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_5">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>54</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="btn_save_shortcuts">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Salvar Configuração</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>11</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 137, 1);
+</string>
+             </property>
+             <property name="text">
+              <string>nota: atalhos não funcionaram caso esta aba esteja ativa</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_6">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_7">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap>../midia/logo/ps_png.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="config">
+          <attribute name="title">
+           <string>Configuração</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_10">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_16">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 20pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Log Bot Config</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_9">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item row="0" column="4">
+               <widget class="QLineEdit" name="lineedit_y1">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="maxLength">
+                 <number>4</number>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_19">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 14pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>x2</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLabel" name="label_20">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 14pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>y2</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="lineedit_whatsapp">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_17">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 14pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>x1</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="4">
+               <widget class="QLineEdit" name="lineedit_y2">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="maxLength">
+                 <number>4</number>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLineEdit" name="lineedit_x2">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="maxLength">
+                 <number>4</number>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="label_18">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 14pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>y1</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="btn_get_log_bot_square">
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Pegar Coordenada
+do Log</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLineEdit" name="lineedit_x1">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="maxLength">
+                 <number>4</number>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="label_21">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 14pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Link do grupo do WhatsApp</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QLabel" name="label_22">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 14pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>ID do canal 
+ no discord</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="4">
+               <widget class="QLineEdit" name="lineedit_channel_id">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+border: 0px solid rgb(45, 45, 45);
+border-radius: 10px;
+padding: 15px;
+background-color: rgb(24, 24, 24);
+color: rgb(80, 80, 80);
+}
+
+QLineEdit:hover {
+border: 2px solid rgb(27, 27, 27);
+}
+
+QLineEdit:focus {
+border: 2px solid rgb(255, 137, 1);
+color: rgb(255, 255, 255)
+}
+
+</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_23">
+                <property name="font">
+                 <font>
+                  <family>Arial Black</family>
+                  <pointsize>8</pointsize>
+                  <weight>75</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 137, 1);
+font: bold 8pt &quot;Arial Black&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>para uma melhor leitura 
+selecione apenas as 2 primeiras 
+linhas do log</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_11">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>63</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QPushButton" name="btn_save_config">
+                <property name="maximumSize">
+                 <size>
+                  <width>224</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(255, 137, 1);
+border: 3px outset rgb(93, 49, 0);
+border-radius: 10px;
+color: rgb(15, 15, 15);
+font: bold 14pt &quot;Arial Black&quot;;
+}
+
+
+QPushButton:hover{
+color: rgb(255, 17, 0);
+background-color: rgb(215, 97, 0);
+}
+
+QPushButton:pressed{
+border: 3px inset rgb(93, 49, 0);
+color: rgb(15, 15, 15);
+background-color: rgb(255, 17, 0);
+}
+
+QPushButton:disabled {
+background-color: #cccccc; /* Cinza */
+border: 2px solid #999999;
+color: #666666; /* Texto cinza escuro */
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Salvar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
