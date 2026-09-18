@@ -1,6 +1,9 @@
 import logging
+from pathlib import Path
 from threading import Event
 from time import sleep
+
+from playsound import playsound
 
 from src.core.config.config_controller import ConfigController
 from src.core.models.crystal_cracker_model import CrystalCrackerModel
@@ -26,6 +29,7 @@ class GachaBotViewModel:
         try:
             self.stop_event.clear()
             self.load_config()
+            self.play_start_sound()
             if not self.__wait(5):
                 return
             self.render_station.leave_bed()
@@ -133,3 +137,8 @@ class GachaBotViewModel:
     def __wait(self, seconds: float) -> bool: 
         """ Waits for the specified time. Returns False if the bot was stopped during the wait. """ 
         return not self.stop_event.wait(seconds)
+
+    def play_start_sound(self):
+        sound_path = Path(__file__).resolve().parent.parent.parent / "sounds" / "bombardo.mp3"
+        print(str(sound_path))
+        playsound(str(sound_path))

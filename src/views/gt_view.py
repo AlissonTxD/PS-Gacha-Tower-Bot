@@ -2,12 +2,11 @@ import ctypes
 import logging
 from pathlib import Path
 
-from playsound import playsound
 from PyQt5.QtCore import QThread, QTimer
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QMainWindow
-from src.core.services.window_services import WindowServices
 
+from src.core.services.window_services import WindowServices
 from src.core.viewmodels.gacha_bot_viewmodel import GachaBotViewModel
 from src.core.workers.gacha_bot_worker import GachaBotWorker
 from src.views.gacha_tower_ui import Ui_MainWindow
@@ -50,7 +49,6 @@ class GachaTower(QMainWindow):
         self.ui.btn_start.setDisabled(True)
         self.ui.btn_stop.setEnabled(True)
         self.bot_running = True
-        self.play_start_sound()
 
         self.thread = QThread()
         self.worker = GachaBotWorker(self.gachavm)
@@ -341,7 +339,3 @@ class GachaTower(QMainWindow):
         self.ui.label_2.setPixmap(QPixmap(str(img_path / "pego100.png")))
 
         self.setWindowIcon(QIcon(str(img_path / "ps_ico.ico")))
-
-    def play_start_sound(self):
-        sound_path = Path(__file__).resolve().parent.parent / "sounds" / "bombardo.mp3"
-        playsound(str(sound_path))
