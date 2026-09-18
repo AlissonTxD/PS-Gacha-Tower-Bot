@@ -2,9 +2,11 @@ import ctypes
 import logging
 from pathlib import Path
 
+from playsound import playsound
 from PyQt5.QtCore import QThread, QTimer
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QMainWindow
+from src.core.services.window_services import WindowServices
 
 from src.core.viewmodels.gacha_bot_viewmodel import GachaBotViewModel
 from src.core.workers.gacha_bot_worker import GachaBotWorker
@@ -23,11 +25,12 @@ class GachaTower(QMainWindow):
         self.ui.setupUi(self)
         self.load_img_on_exe()
 
+        self.window_services = WindowServices()
         self.gachavm = GachaBotViewModel()
 
         self.thread = None
         self.worker = None
-
+        self.bot_running = False
 
         self.ui.btn_stop.setDisabled(True)
         self.__load_config_on_view()
@@ -38,13 +41,16 @@ class GachaTower(QMainWindow):
         self.ui.btn_coords.clicked.connect(self.__open_color_coordinate_capture_window)
 
     def start_bot(self):
-
-        if self.thread is not None:
+        if self.bot_running:
+            logging.warning("Thread already running.")  # noqa: LOG015
             return
+        self.window_services.focus_ark()
         self.save_config()
 
         self.ui.btn_start.setDisabled(True)
         self.ui.btn_stop.setEnabled(True)
+        self.bot_running = True
+        self.play_start_sound()
 
         self.thread = QThread()
         self.worker = GachaBotWorker(self.gachavm)
@@ -68,7 +74,7 @@ class GachaTower(QMainWindow):
 
     def bot_finished(self):
         logging.info(">>> BOT_FINISHED: entrou")  # noqa: LOG015
-
+        self.bot_running = False
         self.ui.btn_start.setEnabled(True)
         self.ui.btn_stop.setDisabled(True)
 
@@ -310,9 +316,7 @@ class GachaTower(QMainWindow):
 
     def __check_f10(self):
 
-        f10_down = bool(
-            ctypes.windll.user32.GetAsyncKeyState(0x79) & 0x8000
-        )
+        f10_down = bool(ctypes.windll.user32.GetAsyncKeyState(0x79) & 0x8000)
 
         if f10_down and not self.f10_pressed:
             self.f10_pressed = True
@@ -326,26 +330,18 @@ class GachaTower(QMainWindow):
     def load_img_on_exe(self):
         img_path = Path(__file__).resolve().parent / "uis"
 
-        self.ui.label_8.setPixmap(
-            QPixmap(str(img_path / "trap100.png"))
-        )
+        self.ui.label_8.setPixmap(QPixmap(str(img_path / "trap100.png")))
 
-        self.ui.label.setPixmap(
-            QPixmap(str(img_path / "gacha100.png"))
-        )
+        self.ui.label.setPixmap(QPixmap(str(img_path / "gacha100.png")))
 
-        self.ui.fotologo.setPixmap(
-            QPixmap(str(img_path / "ps_png.png"))
-        )
+        self.ui.fotologo.setPixmap(QPixmap(str(img_path / "ps_png.png")))
 
-        self.ui.label_4.setPixmap(
-            QPixmap(str(img_path / "ps_png.png"))
-        )
+        self.ui.label_4.setPixmap(QPixmap(str(img_path / "ps_png.png")))
 
-        self.ui.label_2.setPixmap(
-            QPixmap(str(img_path / "pego100.png"))
-        )
+        self.ui.label_2.setPixmap(QPixmap(str(img_path / "pego100.png")))
 
-        self.setWindowIcon(
-            QIcon(str(img_path / "ps_ico.ico"))
-    )
+        self.setWindowIcon(QIcon(str(img_path / "ps_ico.ico")))
+
+    def play_start_sound(self):
+        sound_path = Path(__file__).resolve().parent.parent / "sounds" / "bombardo.mp3"
+        playsound(str(sound_path))
