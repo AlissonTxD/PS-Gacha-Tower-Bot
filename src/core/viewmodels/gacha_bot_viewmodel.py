@@ -49,7 +49,7 @@ class GachaBotViewModel:
                 self.__rest(3)
         except Exception as e:  # noqa: BLE001
             #record
-            self.gacha.record_replay()
+            self.gacha.gt.record_replay()
             logging.warning(e)  # noqa: LOG015
 
     def __collect_crystals(self) -> None:
