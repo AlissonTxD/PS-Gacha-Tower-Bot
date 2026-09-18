@@ -42,3 +42,4 @@ class CrystalCrackerModel(BaseModel):
             if self.stop_event.is_set():
                 return
             self.ctype.key_up(key)
+        self.log("Crystals opened successfully.")

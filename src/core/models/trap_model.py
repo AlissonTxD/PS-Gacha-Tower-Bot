@@ -15,6 +15,7 @@ class TrapModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.__take__traps()
+        self.log("Traps collected successfully.")
 
     def __take__traps(self):
         if self.stop_event.is_set():

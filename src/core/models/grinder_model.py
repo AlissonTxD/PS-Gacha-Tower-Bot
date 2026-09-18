@@ -7,75 +7,54 @@ class GrinderModel(BaseModel):
         super().__init__(general_config, stop_event)
 
     def grind_items(self):
-
         if self.stop_event.is_set():
             return
-
         self.gt.move_mouse_grau(
             90, 0, self.pixel_per_degree
         )
-
         if self.stop_event.is_set():
             return
-
         self.__place_in_vault(["gate"])
-
+        self.log("Items placed in vault successfully.")
         if self.stop_event.is_set():
             return
-
         self.gt.move_mouse_grau(
             -180, 0, self.pixel_per_degree
         )
-
         if self.stop_event.is_set():
             return
-
         self.open_inventory()
-
+        self.log("Grinder inventory opened successfully.")
         if self.stop_event.is_set():
             return
-
         self.ctype.move_mouse_absolute(
             *self.configs["player_inventory"]["transfer_all"]
         )
-
         if self.stop_event.is_set():
             return
-
         self.ctype.left_click()
-
         if not self.wait(0.5):
             return
-
         self.ctype.move_mouse_absolute(
             *self.configs["misc"]["grind_all"]
         )
-
         if self.stop_event.is_set():
             return
-
         self.ctype.left_click()
-
         if self.stop_event.is_set():
             return
-
         self.ctype.move_mouse_absolute(
             *self.configs["dino_inventory"]["transfer_all"]
         )
-
         if self.stop_event.is_set():
             return
-
         self.ctype.left_click()
-
         if self.stop_event.is_set():
             return
-
         self.ctype.press("escape")
-
         if not self.wait(1):
             return
-
+        self.log("Grinder items processed successfully.")
         self.gt.centralize(
             *self.centralization_parameters
         )
@@ -86,7 +65,7 @@ class GrinderModel(BaseModel):
         self.gt.put_in_dedicated(
             self.pixel_per_degree
         )
-
+        self.log("Items from grinder placed in dedicated successfully.")
         if self.stop_event.is_set():
             return
 

@@ -15,6 +15,7 @@ class PegoModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.open_inventory()
+        self.log("Pego inventory opened successfully.")
         if self.stop_event.is_set():
             return
         self.ctype.move_mouse_absolute(
@@ -36,6 +37,7 @@ class PegoModel(BaseModel):
         self.ctype.press("escape")
         if not self.wait(1):
             return
+        self.log("Crystals collected successfully.")
         if self.stop_event.is_set():
             return
         self.gt.move_mouse_grau(

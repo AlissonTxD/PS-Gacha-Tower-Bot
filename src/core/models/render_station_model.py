@@ -20,6 +20,8 @@ class RenderStationModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.ctype.scroll_mouse("up", 3)
+        self.log("Player left the bed successfully.")
+
     def join_bed(self):
         if self.stop_event.is_set():
             return
@@ -42,6 +44,7 @@ class RenderStationModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.ctype.left_click()
+        self.log("Player joined the bed successfully.")
         if self.stop_event.is_set():
             return
         self.ctype.key_up("e")
@@ -53,6 +56,7 @@ class RenderStationModel(BaseModel):
             key="v"
         ):
             return
+        self.log("Player inventory opened successfully.")
         if self.stop_event.is_set():
             return
         self.ctype.move_mouse_absolute(
@@ -64,5 +68,6 @@ class RenderStationModel(BaseModel):
         if self.stop_event.is_set():
             return
         self.ctype.press("escape")
+        self.log("Player inventory droped and closed successfully.")
         if not self.wait(5):
             return

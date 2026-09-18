@@ -6,6 +6,7 @@ class TeleportModel(BaseModel):
         super().__init__(general_config, stop_event)
 
     def teleport(self, tp_name: str):
+        self.log(f"Teleporting to {tp_name}...")
         if self.stop_event.is_set():
             return
         self.gt.move_mouse_grau(0, -87, self.pixel_per_degree)
@@ -18,7 +19,7 @@ class TeleportModel(BaseModel):
             self.configs["validation"]["teleport"], key="e"
         ):
             return
-        self.log("teleport HUB open successful")
+        self.log("teleport HUD open successful")
         if not self.wait(1):
             return
         self.ctype.move_mouse_absolute(*self.configs["teleport"]["search_map"])

@@ -28,6 +28,7 @@ class GachaModel(BaseModel):
         self.gt.move_mouse_grau(
             40, 0, self.pixel_per_degree
         )
+        self.log("Gachas fed successfully.")
 
     def test_gachas(self):
         # not working yet
